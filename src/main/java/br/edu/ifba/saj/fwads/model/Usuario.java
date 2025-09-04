@@ -1,7 +1,5 @@
 package br.edu.ifba.saj.fwads.model;
 
-import java.util.UUID;
-
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.validation.constraints.Email;
@@ -22,6 +20,18 @@ public class Usuario extends AbstractEntity {
     @Column
     @Email
     private String email;
+    @Column
+    @NotBlank
+    private String nome;
+
+    public Usuario(String email, String login, String senha, String nome) {
+        setSenha(senha);
+        setLogin(login);
+        setEmail(email);
+        setNome(nome);
+    }
+
+    
 
     public String getLogin() {
         return login;
@@ -50,6 +60,12 @@ public class Usuario extends AbstractEntity {
         return "Usuario [senha=" + senha + ", login=" + login + ", email=" + email + "]";
     }
 
-    
+    public String getNome(){
+        return nome;
+    }
+
+    private void setNome(String nome) {
+        this.nome=nome;
+    }
 
 }

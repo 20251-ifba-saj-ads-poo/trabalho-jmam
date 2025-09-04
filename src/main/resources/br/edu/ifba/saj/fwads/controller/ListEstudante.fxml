@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" prefHeight="227.0" prefWidth="323.0" xmlns="http://javafx.com/javafx/24" xmlns:fx="http://javafx.com/fxml/1" fx:controller="br.edu.ifba.saj.fwads.controller.ListEstudanteController">
+   <children>
+      <Text layoutX="131.0" layoutY="19.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Estudantes" />
+      <ListView fx:id="ListarEstudante" layoutX="14.0" layoutY="68.0" />
+   </children>
+</AnchorPane>
