@@ -24,6 +24,8 @@ public class Usuario extends AbstractEntity {
     @NotBlank
     private String nome;
 
+    public Usuario(){}
+
     public Usuario(String email, String login, String senha, String nome) {
         setSenha(senha);
         setLogin(login);

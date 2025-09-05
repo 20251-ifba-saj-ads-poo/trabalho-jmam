@@ -45,7 +45,7 @@ public class LoginController {
     void limparCampos(ActionEvent event) {
         txUsuario.setText("");
         txSenha.setText("");
-        //new Alert(AlertType.INFORMATION, usuarioService.findAll().toString()).showAndWait();
+        new Alert(AlertType.INFORMATION, usuarioService.findAll().toString()).showAndWait();
 
     }
 

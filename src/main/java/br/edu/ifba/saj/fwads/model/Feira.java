@@ -11,6 +11,8 @@ public class Feira extends AbstractEntity {
     private Date data;
     private ArrayList<Projeto> projetos;
 
+    public Feira(){}
+
     public Feira(String nome/*, Date data*/){
         this.nome=nome;
         //this.data=data;
