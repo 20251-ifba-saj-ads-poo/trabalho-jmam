@@ -25,6 +25,12 @@ public class LoginController {
 
     private UsuarioService usuarioService = new UsuarioService();
 
+
+    @FXML
+    void NovaConta(ActionEvent event) {
+
+    }
+    
     @FXML
     void entrar(ActionEvent event) {
         

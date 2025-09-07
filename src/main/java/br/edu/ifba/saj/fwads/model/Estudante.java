@@ -8,8 +8,13 @@ public class Estudante extends Usuario{
     
     private List<Projeto> projetos;
 
-    public Estudante(String email, String login, String senha, String nome) {
-        super(email, login, senha, nome);
+    public Estudante(String email, String nome, String cpf) {
+        super(email, nome,cpf);
+        projetos=new ArrayList<>();        
+    }
+
+    public Estudante(String email, String login, String senha, String nome,String cpf) {
+        super(email, login, senha, nome,cpf);
         projetos=new ArrayList<>();        
     }
 
