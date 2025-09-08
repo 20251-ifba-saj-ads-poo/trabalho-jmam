@@ -8,9 +8,14 @@ public class Professor extends Usuario{
     private List<Projeto> projetos;
     
 
-    public Professor(String email, String login, String senha, String nome) {
-        super(email, login, senha, nome);
-        projetos=new ArrayList<>();
+    public Professor(String email, String nome, String cpf) {
+        super(email, nome,cpf);
+        projetos=new ArrayList<>();        
+    }
+
+    public Professor(String email, String login, String senha, String nome, String cpf) {
+        super(email, login, senha, nome,cpf);
+        projetos=new ArrayList<>();        
     }
 
     public List<Projeto> getProjetos(){

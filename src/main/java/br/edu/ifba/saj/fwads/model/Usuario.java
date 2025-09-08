@@ -23,14 +23,27 @@ public class Usuario extends AbstractEntity {
     @Column
     @NotBlank
     private String nome;
+    @Column
+    @NotBlank
+    private String cpf;
+
 
     public Usuario(){}
 
-    public Usuario(String email, String login, String senha, String nome) {
+    public Usuario(String email, String nome, String cpf) {
+        setSenha(cpf);
+        setLogin(email);
+        setEmail(email);
+        setNome(nome);
+        setCPF(cpf);
+    }
+
+    public Usuario(String email, String login, String senha, String nome, String cpf) {
         setSenha(senha);
         setLogin(login);
         setEmail(email);
         setNome(nome);
+        setCPF(cpf);
     }
 
     
@@ -68,6 +81,10 @@ public class Usuario extends AbstractEntity {
 
     private void setNome(String nome) {
         this.nome=nome;
+    }
+
+    private void setCPF(String cpf) {
+        this.cpf=cpf;
     }
 
 }

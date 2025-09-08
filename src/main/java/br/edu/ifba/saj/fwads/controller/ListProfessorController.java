@@ -1,0 +1,32 @@
+package br.edu.ifba.saj.fwads.controller;
+import br.edu.ifba.saj.fwads.model.Livro;
+import br.edu.ifba.saj.fwads.model.Professor;
+import br.edu.ifba.saj.fwads.service.Service;
+import javafx.collections.FXCollections;
+import javafx.fxml.FXML;
+import javafx.scene.control.TableColumn;
+import javafx.scene.control.TableView;
+import javafx.scene.control.cell.PropertyValueFactory;
+public class ListProfessorController {
+    
+    @FXML
+    private TableColumn<Livro, String> clnNome;
+    @FXML
+    private TableView<Livro> tblProfessor;
+
+    private MasterController masterController;
+
+    public void setMasterController(MasterController masterController){
+        this.masterController = masterController;
+    }
+
+    @FXML
+    public void initialize() {
+        clnNome.setCellValueFactory(new PropertyValueFactory<>("nome"));
+        loadProfessorList();
+    }
+
+        public void loadProfessorList(){
+        tblProfessor.setItems(FXCollections.observableList(new Service(Professor.class).findAll()));
+    }
+}
