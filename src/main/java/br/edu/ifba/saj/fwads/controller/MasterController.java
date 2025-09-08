@@ -92,56 +92,56 @@ public class MasterController {
     @FXML
     void showCadProfessor(ActionEvent event) {
         limparBotoes(event.getSource());
-        CadAutorController controller = (CadAutorController) showFXMLFile("CadAutor.fxml");
+        CadAutorController controller = (CadAutorController) showFXMLFile("CadProfessor.fxml");
         controller.setMasterController(this);
     }
 
     @FXML
     void showCadEstudante(ActionEvent event) {
         limparBotoes(event.getSource());
-        CadAutorController controller = (CadAutorController) showFXMLFile("CadAutor.fxml");
+        CadAutorController controller = (CadAutorController) showFXMLFile("CadEstudante.fxml");
         controller.setMasterController(this);
     }
 
     @FXML
     void showCadProjeto(ActionEvent event) {
         limparBotoes(event.getSource());
-        CadAutorController controller = (CadAutorController) showFXMLFile("CadAutor.fxml");
+        CadAutorController controller = (CadAutorController) showFXMLFile("CadProjeto.fxml");
         controller.setMasterController(this);
     }
 
     @FXML
     void showCadFeira(ActionEvent event) {
         limparBotoes(event.getSource());
-        CadAutorController controller = (CadAutorController) showFXMLFile("CadAutor.fxml");
+        CadAutorController controller = (CadAutorController) showFXMLFile("CadFeira.fxml");
         controller.setMasterController(this);
     }    
 
     @FXML
     void showListProfessor(ActionEvent event) {
         limparBotoes(event.getSource());
-        CadAutorController controller = (CadAutorController) showFXMLFile("CadAutor.fxml");
+        CadAutorController controller = (CadAutorController) showFXMLFile("ListProfessor.fxml");
         controller.setMasterController(this);
     }
 
     @FXML
     void showListEstudante(ActionEvent event) {
         limparBotoes(event.getSource());
-        CadAutorController controller = (CadAutorController) showFXMLFile("CadAutor.fxml");
+        CadAutorController controller = (CadAutorController) showFXMLFile("ListEstudante.fxml");
         controller.setMasterController(this);
     }
 
     @FXML
     void showListProjeto(ActionEvent event) {
         limparBotoes(event.getSource());
-        CadAutorController controller = (CadAutorController) showFXMLFile("CadAutor.fxml");
+        CadAutorController controller = (CadAutorController) showFXMLFile("ListProjeto.fxml");
         controller.setMasterController(this);
     }
 
     @FXML
     void showListFeira(ActionEvent event) {
         limparBotoes(event.getSource());
-        CadAutorController controller = (CadAutorController) showFXMLFile("CadAutor.fxml");
+        CadAutorController controller = (CadAutorController) showFXMLFile("ListFeira.fxml");
         controller.setMasterController(this);
     }
 

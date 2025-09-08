@@ -22,12 +22,12 @@ public class CadEstudanteController {
         this.masterController = masterController;
     }
 
-    public void setListAutorController(ListEstudanteController listAutorController) {
+    public void setListEstudanteController(ListEstudanteController listAutorController) {
         this.listEstudanteController = listEstudanteController;
     }
 
     @FXML
-    private void salvarAutor() {
+    private void salvar() {
         Estudante novoEstudante = new Estudante(txNome.getText(),
                     txEmail.getText(),
                     txCPF.getText());

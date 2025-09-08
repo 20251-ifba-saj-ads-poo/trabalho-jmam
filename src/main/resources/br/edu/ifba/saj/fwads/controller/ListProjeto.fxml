@@ -1,21 +1,30 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.control.ChoiceBox?>
-<?import javafx.scene.control.ContextMenu?>
-<?import javafx.scene.control.ListView?>
-<?import javafx.scene.control.MenuItem?>
-<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ButtonBar?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.BorderPane?>
 
-<AnchorPane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" prefHeight="225.0" prefWidth="178.0" xmlns="http://javafx.com/javafx/24" xmlns:fx="http://javafx.com/fxml/1" fx:controller="br.edu.ifba.saj.fwads.controller.ListProjetoController">
-   <children>
-      <ChoiceBox fx:id="ListProjeto" layoutX="14.0" layoutY="36.0" prefWidth="150.0" />
-      <ListView fx:id="ListarProjeto" layoutX="14.0" layoutY="70.0" prefHeight="200.0">
-         <contextMenu>
-            <ContextMenu onAction="#SelectProjeto">
-              <items>
-                <MenuItem mnemonicParsing="false" text="Unspecified Action" />
-              </items>
-            </ContextMenu>
-         </contextMenu></ListView>
-   </children>
-</AnchorPane>
+<BorderPane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="394.0" prefWidth="582.0" xmlns="http://javafx.com/javafx/24.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="br.edu.ifba.saj.fwads.controller.ListLivroController">
+   <center>
+      <TableView fx:id="tblAutor" prefHeight="347.0" prefWidth="489.0">
+         <columns>
+            <TableColumn fx:id="clnTitulo" editable="false" minWidth="-1.0" prefWidth="201.0" text="Titulo" />
+            <TableColumn fx:id="clnProfessores" editable="false" minWidth="-1.0" prefWidth="173.0" text="Professores" />
+            <TableColumn fx:id="clnEstudantes" editable="false" minWidth="-1.0" prefWidth="225.0" text="Estudantes" />
+         </columns>
+      </TableView>
+   </center>
+   <bottom>
+      <ButtonBar prefHeight="40.0" prefWidth="200.0" styleClass="main" stylesheets="@assets/style.css" BorderPane.alignment="CENTER">
+         <buttons>
+            <Button mnemonicParsing="false" onAction="#showNovo" styleClass="bottom" stylesheets="@assets/style.css" text="Novo Projeto" />
+         </buttons>
+         <padding>
+            <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+         </padding>
+      </ButtonBar>
+   </bottom>
+</BorderPane>

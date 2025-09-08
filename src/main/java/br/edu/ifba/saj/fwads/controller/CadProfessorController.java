@@ -3,8 +3,8 @@ import br.edu.ifba.saj.fwads.model.Professor;
 import br.edu.ifba.saj.fwads.service.Service;
 import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
-import javafx.scene.control.TextField;
 import javafx.scene.control.Alert.AlertType;
+import javafx.scene.control.TextField;
 
 public class CadProfessorController {
     @FXML
@@ -28,7 +28,7 @@ public class CadProfessorController {
     }
 
     @FXML
-    private void salvarAutor() {
+    private void salvar() {
         Professor novoProfessor = new Professor(txNome.getText(),
                     txEmail.getText(),
                     txCPF.getText());
