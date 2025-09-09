@@ -5,12 +5,15 @@
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" prefHeight="321.0" prefWidth="298.0" xmlns="http://javafx.com/javafx/24.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="br.edu.ifba.saj.fwads.controller.CadProfessorController">
+<AnchorPane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" prefHeight="225.0" prefWidth="178.0" xmlns="http://javafx.com/javafx/24.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="br.edu.ifba.saj.fwads.controller.CadProfessorController">
    <children>
-      <Label layoutX="14.0" layoutY="69.0" text="Nome" AnchorPane.leftAnchor="14.0" AnchorPane.rightAnchor="14.800000000000011" />
-      <TextField fx:id="txNome" layoutX="14.0" layoutY="87.0" AnchorPane.leftAnchor="14.0" AnchorPane.rightAnchor="14.800000000000011" />
+      <Label layoutX="14.0" layoutY="14.0" text="Nome" AnchorPane.leftAnchor="14.0" AnchorPane.rightAnchor="14.0" />
+      <Label layoutX="14.0" layoutY="60.0" text="Email" AnchorPane.leftAnchor="14.0" AnchorPane.rightAnchor="14.0" />
+      <Label layoutX="14.0" layoutY="104.0" text="CPF" AnchorPane.leftAnchor="14.0" AnchorPane.rightAnchor="14.0" />
+      <TextField fx:id="txNome" layoutX="14.0" layoutY="32.0" AnchorPane.leftAnchor="14.0" AnchorPane.rightAnchor="14.0" />
+      <TextField fx:id="txEmail" layoutX="65.0" layoutY="78.0" AnchorPane.leftAnchor="14.0" AnchorPane.rightAnchor="14.0" />
+      <TextField fx:id="txCPF" layoutX="45.0" layoutY="122.0" AnchorPane.leftAnchor="14.0" AnchorPane.rightAnchor="14.0" />
       <Button cancelButton="true" layoutX="215.0" layoutY="159.0" mnemonicParsing="false" onAction="#limparTela" text="Cancelar" AnchorPane.bottomAnchor="14.0" AnchorPane.rightAnchor="14.0" />
-      <Button defaultButton="true" layoutX="48.0" layoutY="185.0" mnemonicParsing="false" onAction="#salvarProfessor" text="Salvar" AnchorPane.bottomAnchor="14.0" AnchorPane.rightAnchor="80.0" />
-      <Label layoutX="77.0" layoutY="14.0" text="CADASTRO PROFESSOR" textAlignment="CENTER" />
+      <Button defaultButton="true" layoutX="48.0" layoutY="185.0" mnemonicParsing="false" onAction="#salvar" text="Salvar" AnchorPane.bottomAnchor="14.0" AnchorPane.rightAnchor="80.0" />
    </children>
 </AnchorPane>

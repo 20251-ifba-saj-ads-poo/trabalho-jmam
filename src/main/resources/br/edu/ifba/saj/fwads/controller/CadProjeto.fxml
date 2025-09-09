@@ -13,7 +13,7 @@
       <Label fx:id="lbISBN" layoutX="14.0" layoutY="102.0" AnchorPane.leftAnchor="14.0" AnchorPane.rightAnchor="14.0" />
       <Label fx:id="lbAutor" layoutX="14.0" layoutY="102.0" text="Professor Líder" AnchorPane.leftAnchor="14.0" AnchorPane.rightAnchor="14.799999999999955" />
       <ChoiceBox fx:id="slProfessor" layoutX="14.0" layoutY="120.0" prefHeight="26.0" prefWidth="262.0" AnchorPane.leftAnchor="14.0" AnchorPane.rightAnchor="14.799999999999955" />
-      <Button defaultButton="true" layoutX="159.0" layoutY="223.0" mnemonicParsing="false" onAction="#salvarProjeto" text="Salvar" AnchorPane.bottomAnchor="14.0" AnchorPane.rightAnchor="83.0" />
+      <Button defaultButton="true" layoutX="159.0" layoutY="223.0" mnemonicParsing="false" onAction="#salvar" text="Salvar" AnchorPane.bottomAnchor="14.0" AnchorPane.rightAnchor="83.0" />
       <Button cancelButton="true" layoutX="224.0" layoutY="220.0" mnemonicParsing="false" onAction="#limparTela" text="Cancelar" AnchorPane.bottomAnchor="14.0" AnchorPane.rightAnchor="14.0" />
       <Label fx:id="lbTitulo1" layoutX="87.0" layoutY="14.0" prefHeight="18.0" prefWidth="117.0" text="CADASTRO PROJETO" />
    </children>

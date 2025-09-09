@@ -10,7 +10,7 @@
       <Label layoutX="14.0" layoutY="69.0" text="Nome" AnchorPane.leftAnchor="14.0" AnchorPane.rightAnchor="14.800000000000011" />
       <TextField fx:id="txNome" layoutX="14.0" layoutY="87.0" AnchorPane.leftAnchor="14.0" AnchorPane.rightAnchor="14.800000000000011" />
       <Button cancelButton="true" layoutX="215.0" layoutY="159.0" mnemonicParsing="false" onAction="#limparTela" text="Cancelar" AnchorPane.bottomAnchor="14.0" AnchorPane.rightAnchor="14.0" />
-      <Button defaultButton="true" layoutX="48.0" layoutY="185.0" mnemonicParsing="false" onAction="#salvarFeira" text="Salvar" AnchorPane.bottomAnchor="14.0" AnchorPane.rightAnchor="80.0" />
+      <Button defaultButton="true" layoutX="48.0" layoutY="185.0" mnemonicParsing="false" onAction="#salvar" text="Salvar" AnchorPane.bottomAnchor="14.0" AnchorPane.rightAnchor="80.0" />
       <Label layoutX="94.0" layoutY="14.0" text="CADASTRO FEIRA" textAlignment="CENTER" />
    </children>
 </AnchorPane>
