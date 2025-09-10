@@ -6,10 +6,13 @@ import java.util.List;
 public class Professor extends Usuario{
     
     private List<Projeto> projetos;
-    
+
+    public Professor() {  
+        projetos=new ArrayList<>();       
+    }
 
     public Professor(String email, String nome, String cpf) {
-        super(email, nome,cpf);
+        super(email,email,cpf, nome,cpf);
         projetos=new ArrayList<>();        
     }
 

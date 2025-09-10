@@ -1,11 +1,12 @@
 package br.edu.ifba.saj.fwads.model;
 
 import java.util.UUID;
+
+import org.hibernate.annotations.Type;
+
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.Id;
 import jakarta.persistence.MappedSuperclass;
-
-import org.hibernate.annotations.Type;
 
 @MappedSuperclass
 public abstract class AbstractEntity {
@@ -14,6 +15,7 @@ public abstract class AbstractEntity {
     @GeneratedValue
     @Type(type = "uuid-char")
     private UUID id;
+
 
     @Override
     public int hashCode() {

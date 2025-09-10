@@ -9,8 +9,11 @@ public class Estudante extends Usuario{
     
     private List<Projeto> projetos;
 
+    public Estudante() {
+        projetos=new ArrayList<>();
+    }
     public Estudante(String email, String nome, String cpf) {
-        super(email, nome,cpf);
+        super(email,email,cpf, nome,cpf);
         projetos=new ArrayList<>();        
     }
 

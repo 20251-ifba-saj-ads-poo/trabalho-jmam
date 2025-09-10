@@ -30,14 +30,6 @@ public class Usuario extends AbstractEntity {
 
     public Usuario(){}
 
-    public Usuario(String email, String nome, String cpf) {
-        setSenha(cpf);
-        setLogin(email);
-        setEmail(email);
-        setNome(nome);
-        setCPF(cpf);
-    }
-
     public Usuario(String email, String login, String senha, String nome, String cpf) {
         setSenha(senha);
         setLogin(login);
