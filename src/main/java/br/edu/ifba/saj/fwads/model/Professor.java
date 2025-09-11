@@ -3,40 +3,41 @@ package br.edu.ifba.saj.fwads.model;
 import java.util.ArrayList;
 import java.util.List;
 
+import jakarta.persistence.Entity;
+import jakarta.persistence.ManyToMany;
 import jakarta.persistence.OneToMany;
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.Size;
 
+@Entity
 public class Professor extends Usuario{
-    @OneToMany
+    
+    
+    @ManyToMany(mappedBy = "professores")
     private List<Projeto> projetos;
 
     public Professor() {  
-        projetos=new ArrayList<>();       
     }
     
     public Professor(@NotBlank @Email String email, @NotBlank @Size(min=5) String nome, @NotBlank @Size(min = 11, max = 11) String cpf) {
         super(email, nome, cpf);
-        projetos=new ArrayList<>();        
     }
 
     public Professor(@NotBlank @Email String email, @NotBlank @Size(min=5) String login,@NotBlank @Size(min=5) String senha,@NotBlank String nome,@NotBlank @Size(min = 11, max = 11) String cpf) {
         super(email, login, senha, nome,cpf);
-        projetos=new ArrayList<>();        
     }
 
-    public List<Projeto> getProjetos(){
-        return List.copyOf(projetos);
+    public List<Projeto> getProjetos() {
+        return projetos;
     }
 
-    public void addProjeto(Projeto projeto){
-        projetos.add(projeto);
+    public void setProjetos(List<Projeto> projetos) {
+        this.projetos = projetos;
     }
 
-    public void removeProjeto(Projeto projeto){
-        projetos.remove(projeto);
-    }
+    
+
 
 
 

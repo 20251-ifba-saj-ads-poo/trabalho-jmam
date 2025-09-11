@@ -16,6 +16,7 @@ import java.util.Map;
 import org.hibernate.Session;
 
 import br.edu.ifba.saj.fwads.model.AbstractEntity;
+import br.edu.ifba.saj.fwads.model.Professor;
 
 public class Repository<T extends AbstractEntity> {
 
@@ -33,31 +34,30 @@ public class Repository<T extends AbstractEntity> {
 
     public Repository(Class<T> entityClass) {
         this.entityClass = entityClass;
-        runImport();
+        verificaUsuarioAdmin();
     }
 
-    //executa o import.sql nos casos do hibernate update
-    private void runImport() {
-        try {
-            EntityManager entityManager = sessionFactory.createEntityManager();
+    private void verificaUsuarioAdmin() {
+        EntityManager entityManager = sessionFactory.createEntityManager();
+        StringBuilder query = new StringBuilder("Select t from Professor t where login=:login and senha=:senha");
+        Query q = entityManager.createQuery(query.toString());
+        q.setParameter("login", "admin");
+        q.setParameter("senha", "admin");
+        List<?> result = q.getResultList();        
+        if (result.isEmpty()) {
+            Professor admin = new Professor();
+            admin.setLogin("admin");
+            admin.setSenha("admin");        
+            admin.setNome("Administrador");
+            admin.setEmail("admin@sistema.com");
+            admin.setCPF("11111111111");
             entityManager.getTransaction().begin();
-
-            String sql = new String(Files.readAllBytes(Paths.get("src/main/resources/import.sql")),
-                    StandardCharsets.UTF_8);
-
-            for (String command : sql.split(";")) {
-                if (!command.trim().isEmpty()) {
-                    entityManager.createNativeQuery(command.trim()).executeUpdate();
-                }
-            }
-
+            entityManager.persist(admin);
             entityManager.getTransaction().commit();
             entityManager.close();
-        } catch (Throwable ex) {
-            throw new ExceptionInInitializerError(ex);
         }
-
-    }
+        
+    }    
 
     public T create(T entity) {
         EntityManager entityManager = sessionFactory.createEntityManager();
