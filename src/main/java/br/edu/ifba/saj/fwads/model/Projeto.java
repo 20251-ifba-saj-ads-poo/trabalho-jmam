@@ -51,15 +51,15 @@ public final class Projeto extends AbstractEntity{
         professor.removeProjeto(this);
     }
 
-    public void addEstudante (Estudante estudante){
+    /*public void addEstudante (Estudante estudante){
         estudantes.add(estudante);
         estudante.addProjeto(this);
-    }
+    } */
 
-    public void removeEstudante (Estudante estudante){
-        estudantes.remove(estudante);
-        estudante.removeProjeto(this);
-    }
+    /*public void removeEstudante (Estudante estudante){
+        //estudantes.remove(estudante);
+        //estudante.removeProjeto(this);
+    }*/
 
     public void addFeira(Feira feira) {
         this.feira=feira;

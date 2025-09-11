@@ -15,18 +15,13 @@ public class Professor extends Usuario{
     public Professor() {  
         projetos=new ArrayList<>();       
     }
-
-<<<<<<< HEAD
-    public Professor(@Email String email,@NotBlank @Size(min=5) String nome, @NotBlank @Size(min = 11, max = 11) String cpf) {
-        super(email, nome,cpf);
-=======
-    public Professor(String email, String nome, String cpf) {
-        super(email,email,cpf, nome,cpf);
->>>>>>> 84b5fcd43212f67e82355e545ae1b42c18f670d3
+    
+    public Professor(@NotBlank @Email String email, @NotBlank @Size(min=5) String nome, @NotBlank @Size(min = 11, max = 11) String cpf) {
+        super(email, nome, cpf);
         projetos=new ArrayList<>();        
     }
 
-    public Professor(@Email String email, @NotBlank @Size(min=5) String login,@NotBlank @Size(min=5) String senha,@NotBlank String nome,@NotBlank @Size(min = 11, max = 11) String cpf) {
+    public Professor(@NotBlank @Email String email, @NotBlank @Size(min=5) String login,@NotBlank @Size(min=5) String senha,@NotBlank String nome,@NotBlank @Size(min = 11, max = 11) String cpf) {
         super(email, login, senha, nome,cpf);
         projetos=new ArrayList<>();        
     }
