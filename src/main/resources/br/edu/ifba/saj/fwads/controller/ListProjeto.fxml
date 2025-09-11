@@ -9,11 +9,10 @@
 
 <BorderPane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="394.0" prefWidth="582.0" xmlns="http://javafx.com/javafx/24.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="br.edu.ifba.saj.fwads.controller.ListProfessorController">
    <center>
-      <TableView fx:id="tblAutor" prefHeight="347.0" prefWidth="489.0">
+      <TableView fx:id="tbl" prefHeight="347.0" prefWidth="489.0">
          <columns>
             <TableColumn fx:id="clnTitulo" editable="false" minWidth="-1.0" prefWidth="201.0" text="Titulo" />
-            <TableColumn fx:id="clnProfessores" editable="false" minWidth="-1.0" prefWidth="173.0" text="Professores" />
-            <TableColumn fx:id="clnEstudantes" editable="false" minWidth="-1.0" prefWidth="225.0" text="Estudantes" />
+            <TableColumn fx:id="clnLider" editable="false" minWidth="-1.0" prefWidth="379.99999084472654" text="Professor Autor" />
          </columns>
       </TableView>
    </center>

@@ -1,6 +1,7 @@
 package br.edu.ifba.saj.fwads.controller;
 import br.edu.ifba.saj.fwads.model.Professor;
 import br.edu.ifba.saj.fwads.service.Service;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
@@ -28,20 +29,20 @@ public class CadProfessorController {
     }
 
     @FXML
-    private void salvar() {
+    private void salvar(ActionEvent event) {
         Professor novoProfessor = new Professor(txNome.getText(),
                     txEmail.getText(),
                     txCPF.getText());
         serviceProfessor.create(novoProfessor);
         new Alert(AlertType.INFORMATION, 
         "Professor:"+novoProfessor.getNome()+" cadastrado com sucesso").showAndWait();
-        limparTela();
+        limparTela(event);
         if (listProfessorController!= null) {
             listProfessorController.loadProfessorList();
         }
     }
     @FXML
-    private void limparTela() {
+    private void limparTela(ActionEvent event) {
         txNome.setText("");
         txEmail.setText("");
         txCPF.setText("");

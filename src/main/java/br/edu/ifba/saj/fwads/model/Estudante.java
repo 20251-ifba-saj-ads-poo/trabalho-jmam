@@ -1,25 +1,24 @@
 package br.edu.ifba.saj.fwads.model;
 
-import java.util.ArrayList;
-import java.util.List;
+import jakarta.validation.constraints.Email;
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.Size;
 
 
 public class Estudante extends Usuario{
 
-    
-    private List<Projeto> projetos;
+    @NotBlank
+    private Projeto projeto;
 
-    public Estudante(String email, String nome, String cpf) {
-        super(email, nome,cpf);
-        projetos=new ArrayList<>();        
+    public Estudante(@Email String email,@NotBlank @Size(min=5) String nome, @NotBlank @Size(min = 11, max = 11) String cpf) {
+        super(email, nome,cpf);        
     }
 
-    public Estudante(String email, String login, String senha, String nome,String cpf) {
-        super(email, login, senha, nome,cpf);
-        projetos=new ArrayList<>();        
+    public Estudante(@Email String email, @NotBlank @Size(min=5) String login,@NotBlank @Size(min=5) String senha,@NotBlank String nome,@NotBlank @Size(min = 11, max = 11) String cpf) {
+        super(email, login, senha, nome,cpf);        
     }
 
-    public List<Projeto> getProjetos(){
+    /*public List<Projeto> getProjetos(){
         return List.copyOf(projetos);
     }
 
@@ -29,7 +28,17 @@ public class Estudante extends Usuario{
 
     public void removeProjeto(Projeto projeto){
         projetos.remove(projeto);
+    }*/
+
+    public void setProjeto(Projeto projeto){
+        this.projeto=projeto;
     }
+
+    public Projeto getProjeto(){
+        return projeto;
+    }
+
+
 
 }
 

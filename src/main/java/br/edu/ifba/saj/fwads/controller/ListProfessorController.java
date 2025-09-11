@@ -3,6 +3,7 @@ import br.edu.ifba.saj.fwads.model.Livro;
 import br.edu.ifba.saj.fwads.model.Professor;
 import br.edu.ifba.saj.fwads.service.Service;
 import javafx.collections.FXCollections;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
@@ -10,7 +11,7 @@ import javafx.scene.control.cell.PropertyValueFactory;
 public class ListProfessorController {
     
     @FXML
-    private TableColumn<Livro, String> clnNome;
+    private TableColumn<Professor, String> clnNome;
     @FXML
     private TableView<Livro> tblProfessor;
 
@@ -28,5 +29,9 @@ public class ListProfessorController {
 
         public void loadProfessorList(){
         tblProfessor.setItems(FXCollections.observableList(new Service(Professor.class).findAll()));
+    }
+    @FXML
+    void showNovo(ActionEvent event) {
+
     }
 }

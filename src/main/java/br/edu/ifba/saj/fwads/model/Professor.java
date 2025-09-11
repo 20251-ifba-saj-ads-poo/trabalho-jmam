@@ -3,17 +3,22 @@ package br.edu.ifba.saj.fwads.model;
 import java.util.ArrayList;
 import java.util.List;
 
+import jakarta.persistence.OneToMany;
+import jakarta.validation.constraints.Email;
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.Size;
+
 public class Professor extends Usuario{
-    
+    @OneToMany
     private List<Projeto> projetos;
     
 
-    public Professor(String email, String nome, String cpf) {
+    public Professor(@Email String email,@NotBlank @Size(min=5) String nome, @NotBlank @Size(min = 11, max = 11) String cpf) {
         super(email, nome,cpf);
         projetos=new ArrayList<>();        
     }
 
-    public Professor(String email, String login, String senha, String nome, String cpf) {
+    public Professor(@Email String email, @NotBlank @Size(min=5) String login,@NotBlank @Size(min=5) String senha,@NotBlank String nome,@NotBlank @Size(min = 11, max = 11) String cpf) {
         super(email, login, senha, nome,cpf);
         projetos=new ArrayList<>();        
     }

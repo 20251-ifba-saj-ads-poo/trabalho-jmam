@@ -25,12 +25,13 @@ public class Usuario extends AbstractEntity {
     private String nome;
     @Column
     @NotBlank
+    @Size(min = 11, max = 11)
     private String cpf;
 
 
     public Usuario(){}
 
-    public Usuario(String email, String nome, String cpf) {
+    public Usuario(@Email String email,@NotBlank String nome,@NotBlank @Size(min = 11, max = 11) String cpf) {
         setSenha(cpf);
         setLogin(email);
         setEmail(email);
@@ -38,7 +39,7 @@ public class Usuario extends AbstractEntity {
         setCPF(cpf);
     }
 
-    public Usuario(String email, String login, String senha, String nome, String cpf) {
+    public Usuario(@Email String email, @NotBlank @Size(min=5) String login,@NotBlank @Size(min=5) String senha,@NotBlank String nome,@NotBlank @Size(min = 11, max = 11) String cpf) {
         setSenha(senha);
         setLogin(login);
         setEmail(email);

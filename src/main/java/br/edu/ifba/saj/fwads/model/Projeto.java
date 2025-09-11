@@ -25,7 +25,7 @@ public final class Projeto extends AbstractEntity{
 
     public Projeto(){}
 
-    public Projeto(String nome, Professor professor){
+    public Projeto(@NotBlank @Size(min=5) String nome, @NotBlank Professor professor){
         this.nome=nome;
         this.professores= new ArrayList<>();
         this.estudantes= new ArrayList<>();
