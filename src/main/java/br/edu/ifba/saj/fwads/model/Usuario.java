@@ -31,6 +31,7 @@ public class Usuario extends AbstractEntity {
 
     public Usuario(){}
 
+<<<<<<< HEAD
     public Usuario(@Email String email,@NotBlank String nome,@NotBlank @Size(min = 11, max = 11) String cpf) {
         setSenha(cpf);
         setLogin(email);
@@ -40,6 +41,9 @@ public class Usuario extends AbstractEntity {
     }
 
     public Usuario(@Email String email, @NotBlank @Size(min=5) String login,@NotBlank @Size(min=5) String senha,@NotBlank String nome,@NotBlank @Size(min = 11, max = 11) String cpf) {
+=======
+    public Usuario(String email, String login, String senha, String nome, String cpf) {
+>>>>>>> 84b5fcd43212f67e82355e545ae1b42c18f670d3
         setSenha(senha);
         setLogin(login);
         setEmail(email);
