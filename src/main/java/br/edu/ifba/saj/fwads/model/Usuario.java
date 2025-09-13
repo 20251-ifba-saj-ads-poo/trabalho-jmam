@@ -72,11 +72,11 @@ public class Usuario extends AbstractEntity {
         return nome;
     }
 
-    private void setNome(String nome) {
+    public void setNome(String nome) {
         this.nome=nome;
     }
 
-    private void setCPF(String cpf) {
+    public void setCPF(String cpf) {
         this.cpf=cpf;
     }
 

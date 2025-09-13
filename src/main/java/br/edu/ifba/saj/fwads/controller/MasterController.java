@@ -50,7 +50,7 @@ public class MasterController {
 
     public void setUsuarioLogado(Usuario usuarioLogado) {
         this.usuarioLogado = usuarioLogado;
-        setEmail(usuarioLogado.getEmail());
+        setEmail(usuarioLogado.getNome());
     }
 
     @FXML
@@ -107,7 +107,7 @@ public class MasterController {
     void showCadProjeto(ActionEvent event) {
         limparBotoes(event.getSource());
         CadProjetoController controller = (CadProjetoController) showFXMLFile("CadProjeto.fxml");
-        //controller.setMasterController(this);
+        controller.setMasterController(this);
     }
 
     @FXML
@@ -120,28 +120,28 @@ public class MasterController {
     @FXML
     void showListProfessor(ActionEvent event) {
         limparBotoes(event.getSource());
-        CadAutorController controller = (CadAutorController) showFXMLFile("ListProfessor.fxml");
+        CadProfessorController controller = (CadProfessorController) showFXMLFile("ListProfessor.fxml");
         controller.setMasterController(this);
     }
 
     @FXML
     void showListEstudante(ActionEvent event) {
         limparBotoes(event.getSource());
-        CadAutorController controller = (CadAutorController) showFXMLFile("ListEstudante.fxml");
+        CadEstudanteController controller = (CadEstudanteController) showFXMLFile("ListEstudante.fxml");
         controller.setMasterController(this);
     }
 
     @FXML
     void showListProjeto(ActionEvent event) {
         limparBotoes(event.getSource());
-        CadAutorController controller = (CadAutorController) showFXMLFile("ListProjeto.fxml");
+        CadProjetoController controller = (CadProjetoController) showFXMLFile("ListProjeto.fxml");
         controller.setMasterController(this);
     }
 
     @FXML
     void showListFeira(ActionEvent event) {
         limparBotoes(event.getSource());
-        CadAutorController controller = (CadAutorController) showFXMLFile("ListFeira.fxml");
+        CadFeiraController controller = (CadFeiraController) showFXMLFile("ListFeira.fxml");
         controller.setMasterController(this);
     }
 

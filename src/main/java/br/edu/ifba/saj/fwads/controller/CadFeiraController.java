@@ -27,7 +27,7 @@ public class CadFeiraController {
     
     @FXML
     void limparTela(ActionEvent event) {
-        
+        txNome.setText("");
     }
 
     @FXML

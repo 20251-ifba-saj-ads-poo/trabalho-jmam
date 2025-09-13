@@ -1,5 +1,6 @@
 package br.edu.ifba.saj.fwads.model;
 
+import java.util.Calendar;
 import java.util.UUID;
 
 import org.hibernate.annotations.Type;
@@ -7,6 +8,9 @@ import org.hibernate.annotations.Type;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.Id;
 import jakarta.persistence.MappedSuperclass;
+import jakarta.persistence.OneToOne;
+import jakarta.persistence.Temporal;
+import jakarta.persistence.TemporalType;
 
 @MappedSuperclass
 public abstract class AbstractEntity {
@@ -15,7 +19,14 @@ public abstract class AbstractEntity {
     @GeneratedValue
     @Type(type = "uuid-char")
     private UUID id;
-
+    @Temporal(TemporalType.DATE)
+    private Calendar dataCriacao;
+    @OneToOne
+    private Professor criador;
+    @Temporal(TemporalType.DATE)
+    private Calendar dataModificacao;
+    @OneToOne
+    private Professor modificador;
 
     @Override
     public int hashCode() {

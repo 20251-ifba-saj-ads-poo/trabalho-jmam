@@ -4,6 +4,7 @@ package br.edu.ifba.saj.fwads.controller;
 import br.edu.ifba.saj.fwads.model.Professor;
 import br.edu.ifba.saj.fwads.model.Projeto;
 import br.edu.ifba.saj.fwads.service.Service;
+import javafx.collections.FXCollections;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
@@ -23,6 +24,7 @@ public class CadProjetoController {
     @FXML
     private ChoiceBox<Professor> slProfessor;
 
+    private MasterController masterController;
     private ListProjetoController listProjetoController;
 
     private Service<Projeto> serviceProjeto = new Service<>(Projeto.class);
@@ -32,9 +34,11 @@ public class CadProjetoController {
         this.listProjetoController = listProjetoController;
     }
 
+    public void setMasterController(MasterController masterController) {
+        this.masterController = masterController;
+    }
+
     @FXML
-
-
     void salvar(ActionEvent event) {
 
         Projeto novoProjeto = new Projeto(txTitulo.getText(),
@@ -69,6 +73,7 @@ public class CadProjetoController {
                     .orElse(null);                
             }
         });
+            carregarListaProfessores();     
     }
         
 
@@ -80,5 +85,7 @@ public class CadProjetoController {
         //new Alert(AlertType.INFORMATION, serviceLivro.findAll().toString()).showAndWait();
     }
 
-
+    private void carregarListaProfessores() {
+        slProfessor.setItems(FXCollections.observableList(serviceProfessor.findAll()));
+    }
 }
