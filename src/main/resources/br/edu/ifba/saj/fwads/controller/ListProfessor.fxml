@@ -7,9 +7,9 @@
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.layout.BorderPane?>
 
-<BorderPane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="394.0" prefWidth="582.0" xmlns="http://javafx.com/javafx/24.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="br.edu.ifba.saj.fwads.controller.ListLivroController">
+<BorderPane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="394.0" prefWidth="582.0" xmlns="http://javafx.com/javafx/24" xmlns:fx="http://javafx.com/fxml/1" fx:controller="br.edu.ifba.saj.fwads.controller.ListLivroController">
    <center>
-      <TableView fx:id="tblAutor">
+      <TableView fx:id="tblProfessor">
          <columns>
             <TableColumn fx:id="clnNome" editable="false" minWidth="-1.0" prefWidth="201.0" text="Nome" />
             <TableColumn fx:id="clnProjeto" editable="false" minWidth="-1.0" prefWidth="379.99999084472654" text="Projeto" />

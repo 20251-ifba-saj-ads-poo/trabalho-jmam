@@ -9,9 +9,13 @@ import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 
+
 public class ListFeiraController {
     @FXML
-    private TableColumn<Feira, String> clnNome;
+    private TableColumn<Feira, String> clnTitulo;
+    @FXML
+    private TableColumn<Feira, String> clnProjeto;
+
     @FXML
     private TableView<Feira> tblFeira;
 
@@ -23,7 +27,8 @@ public class ListFeiraController {
 
     @FXML
     public void initialize() {
-        clnNome.setCellValueFactory(new PropertyValueFactory<>("nome"));
+        clnTitulo.setCellValueFactory(new PropertyValueFactory<>("nome"));
+        //clnProjeto.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().getProjeto().getNome.()));
         loadFeiraList();
     }
 

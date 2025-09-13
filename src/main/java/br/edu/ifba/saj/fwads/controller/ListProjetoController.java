@@ -35,6 +35,12 @@ public class ListProjetoController {
     @FXML
     private TableView<Projeto> tblProjeto;
 
+    private MasterController masterController;
+
+    public void setMasterController(MasterController masterController){
+        this.masterController = masterController;
+    }
+
     @FXML
     public void initialize() {
         clnTitulo.setCellValueFactory(new PropertyValueFactory<>("titulo"));
