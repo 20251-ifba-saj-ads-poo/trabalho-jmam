@@ -30,8 +30,8 @@ public class CadProfessorController {
 
     @FXML
     private void salvar(ActionEvent event) {
-        Professor novoProfessor = new Professor(txNome.getText(),
-                    txEmail.getText(),
+        Professor novoProfessor = new Professor(txEmail.getText(),
+                    txNome.getText(),
                     txCPF.getText());
         serviceProfessor.create(novoProfessor);
         new Alert(AlertType.INFORMATION, 

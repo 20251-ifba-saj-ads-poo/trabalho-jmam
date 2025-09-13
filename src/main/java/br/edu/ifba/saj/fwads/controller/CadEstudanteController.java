@@ -28,9 +28,7 @@ public class CadEstudanteController {
 
     @FXML
     private void salvar() {
-        Estudante novoEstudante = new Estudante(txNome.getText(),
-                    txEmail.getText(),
-                    txCPF.getText());
+        Estudante novoEstudante = new Estudante(txEmail.getText(),txNome.getText(),txCPF.getText());
         serviceEstudante.create(novoEstudante);
         new Alert(AlertType.INFORMATION, 
         "Estudante:"+novoEstudante.getNome()+" cadastrado com sucesso").showAndWait();

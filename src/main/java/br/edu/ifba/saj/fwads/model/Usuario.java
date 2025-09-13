@@ -2,7 +2,6 @@ package br.edu.ifba.saj.fwads.model;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
-import jakarta.persistence.MappedSuperclass;
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.Size;
@@ -32,15 +31,7 @@ public class Usuario extends AbstractEntity {
 
     public Usuario(){}
 
-    public Usuario(@Email String email,@NotBlank String nome,@NotBlank @Size(min = 11, max = 11) String cpf) {
-        setSenha(cpf);
-        setLogin(email);
-        setEmail(email);
-        setNome(nome);
-        setCPF(cpf);
-    }
-
-    public Usuario(@Email String email, @NotBlank @Size(min=5) String login,@NotBlank @Size(min=5) String senha,@NotBlank String nome,@NotBlank @Size(min = 11, max = 11) String cpf) {
+    public Usuario(String email, String login, String senha, String nome, String cpf) {
         setSenha(senha);
         setLogin(login);
         setEmail(email);
@@ -81,11 +72,11 @@ public class Usuario extends AbstractEntity {
         return nome;
     }
 
-    public void setNome(String nome) {
+    private void setNome(String nome) {
         this.nome=nome;
     }
 
-    public void setCPF(String cpf) {
+    private void setCPF(String cpf) {
         this.cpf=cpf;
     }
 
