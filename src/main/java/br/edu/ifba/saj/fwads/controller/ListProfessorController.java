@@ -31,7 +31,8 @@ public class ListProfessorController {
     }
     @FXML
     void showNovo(ActionEvent event) {
-        masterController.showPerfilProfessor(event, tblProfessor.getSelectionModel().getSelectedItem());        
+        masterController.showPerfilProfessor(event, tblProfessor.getSelectionModel().getSelectedItem());
+                
     }
 }
 
