@@ -4,7 +4,7 @@ package br.edu.ifba.saj.fwads.model;
 import java.util.List;
 
 import jakarta.persistence.Entity;
-import jakarta.persistence.ManyToMany;
+import jakarta.persistence.OneToMany;
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.Size;
@@ -13,8 +13,11 @@ import jakarta.validation.constraints.Size;
 public class Professor extends Usuario{
     
     
-    @ManyToMany(mappedBy = "professores")
-    private List<Projeto> projetos;
+    //@ManyToMany(mappedBy = "professores")
+    //private List<Projeto> projetos;
+
+    @OneToMany(mappedBy="lider")
+    private List<Projeto> projeto;
 
     public Professor() {  
     }
@@ -27,13 +30,15 @@ public class Professor extends Usuario{
         super(email, login, senha, nome,cpf);
     }
 
-    public List<Projeto> getProjetos() {
-        return projetos;
+    public List<Projeto> getProjeto() {
+        return List.copyOf(projeto);
     }
 
-    public void setProjetos(List<Projeto> projetos) {
-        this.projetos = projetos;
+    public void setProjeto(List<Projeto> projeto) {
+        this.projeto = projeto;
     }
+
+    
 
     
 

@@ -1,19 +1,25 @@
 package br.edu.ifba.saj.fwads.model;
 
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
 
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.OneToMany;
+import jakarta.persistence.Temporal;
+import jakarta.persistence.TemporalType;
 import jakarta.validation.constraints.NotBlank;
 
 
 @Entity
 public class Feira extends AbstractEntity {
+    @Column
     @NotBlank
     private String nome;
     @NotBlank
+    @Temporal(TemporalType.DATE)
     private Date data;
     
     @OneToMany(mappedBy = "feira")

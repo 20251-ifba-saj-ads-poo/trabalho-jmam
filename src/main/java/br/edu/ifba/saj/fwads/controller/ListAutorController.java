@@ -15,7 +15,6 @@ import javafx.stage.Stage;
 public class ListAutorController {
     @FXML
     private TableView<Autor> tblAutor;
-
     @FXML
     private TableColumn<Autor, String> columnNome;
     @FXML

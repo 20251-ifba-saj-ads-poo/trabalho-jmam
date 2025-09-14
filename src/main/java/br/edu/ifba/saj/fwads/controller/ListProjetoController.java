@@ -1,5 +1,4 @@
 package br.edu.ifba.saj.fwads.controller;
-
 import br.edu.ifba.saj.fwads.model.Projeto;
 import br.edu.ifba.saj.fwads.service.Service;
 import javafx.beans.property.SimpleStringProperty;
@@ -18,19 +17,19 @@ public class ListProjetoController {
     private TableColumn<?, ?> clnTitulo;
 
     @FXML
-    private TableView<?> tbl;
+    private TableView<?> tblProjeto;
 
     @FXML
     void showNovo(ActionEvent event) {
 
     }*/
     
-    
+    @FXML
+    private TableColumn<Projeto, String> clnLider;
     @FXML
     private TableColumn<Projeto, String> clnTitulo;
 
-    @FXML
-    private TableColumn<Projeto, String> clnLider;
+    
 
     @FXML
     private TableView<Projeto> tblProjeto;
@@ -43,8 +42,8 @@ public class ListProjetoController {
 
     @FXML
     public void initialize() {
-        clnTitulo.setCellValueFactory(new PropertyValueFactory<>("titulo"));
-        clnLider.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().getLider()));
+        clnTitulo.setCellValueFactory(new PropertyValueFactory<>("nome"));
+        clnLider.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().getLider().getNome()));
         loadProjetoList();
     }
     

@@ -80,4 +80,8 @@ public class Usuario extends AbstractEntity {
         this.cpf=cpf;
     }
 
+    public String getCPF(){
+        return cpf;
+    }
+
 }

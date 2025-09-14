@@ -1,5 +1,4 @@
 package br.edu.ifba.saj.fwads.controller;
-import br.edu.ifba.saj.fwads.model.Livro;
 import br.edu.ifba.saj.fwads.model.Professor;
 import br.edu.ifba.saj.fwads.service.Service;
 import javafx.collections.FXCollections;
@@ -13,7 +12,7 @@ public class ListProfessorController {
     @FXML
     private TableColumn<Professor, String> clnNome;
     @FXML
-    private TableView<Livro> tblProfessor;
+    private TableView<Professor> tblProfessor;
 
     private MasterController masterController;
 
@@ -32,6 +31,7 @@ public class ListProfessorController {
     }
     @FXML
     void showNovo(ActionEvent event) {
-
+        masterController.showPerfilProfessor(event, tblProfessor.getSelectionModel().getSelectedItem());        
     }
 }
+

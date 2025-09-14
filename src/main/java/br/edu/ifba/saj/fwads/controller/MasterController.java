@@ -1,6 +1,8 @@
 package br.edu.ifba.saj.fwads.controller;
 
 import br.edu.ifba.saj.fwads.App;
+import br.edu.ifba.saj.fwads.model.AbstractEntity;
+import br.edu.ifba.saj.fwads.model.Professor;
 import br.edu.ifba.saj.fwads.model.Usuario;
 import javafx.css.PseudoClass;
 import javafx.event.ActionEvent;
@@ -19,6 +21,7 @@ import javafx.scene.shape.Circle;
 
 public class MasterController {
 
+    private AbstractEntity objeto;
     @FXML
     private Button menuItemCadAutor;
 
@@ -120,32 +123,55 @@ public class MasterController {
     @FXML
     void showListProfessor(ActionEvent event) {
         limparBotoes(event.getSource());
-        CadProfessorController controller = (CadProfessorController) showFXMLFile("ListProfessor.fxml");
+        ListProfessorController controller = (ListProfessorController) showFXMLFile("ListProfessor.fxml");
         controller.setMasterController(this);
     }
 
     @FXML
     void showListEstudante(ActionEvent event) {
         limparBotoes(event.getSource());
-        CadEstudanteController controller = (CadEstudanteController) showFXMLFile("ListEstudante.fxml");
+        ListEstudanteController controller = (ListEstudanteController) showFXMLFile("ListEstudante.fxml");
         controller.setMasterController(this);
     }
 
     @FXML
     void showListProjeto(ActionEvent event) {
         limparBotoes(event.getSource());
-        CadProjetoController controller = (CadProjetoController) showFXMLFile("ListProjeto.fxml");
+        ListProjetoController controller = (ListProjetoController) showFXMLFile("ListProjeto.fxml");
         controller.setMasterController(this);
     }
 
     @FXML
     void showListFeira(ActionEvent event) {
         limparBotoes(event.getSource());
-        CadFeiraController controller = (CadFeiraController) showFXMLFile("ListFeira.fxml");
+        ListFeiraController controller = (ListFeiraController) showFXMLFile("ListFeira.fxml");
         controller.setMasterController(this);
     }
 
+    /*void showPerfilEstudante(ActionEvent event){
+        limparBotoes(event.getSource());
+        PerfilEstudanteController controller = (PerfilEstudanteController) showFXMLFile("PerfilEstudante.fxml");
+        controller.setMasterController(this);
+    }*/
 
+    void showPerfilProfessor(ActionEvent event, AbstractEntity obj){
+        limparBotoes(event.getSource());
+        PerfilProfessorController controller = (PerfilProfessorController) showFXMLFile("PerfilProfessor.fxml");
+        controller.setMasterController(this);
+        controller.setObjeto(obj);
+    }
+
+    /*void showPerfilProjeto(ActionEvent event){
+        limparBotoes(event.getSource());
+        PerfilProjetoController controller = (PerfilProjetoController) showFXMLFile("PerfilProjeto.fxml");
+        controller.setMasterController(this);
+    }
+
+    void showPerfilFeira(ActionEvent event){
+        limparBotoes(event.getSource());
+        PerfilFeiraController controller = (PerfilFeiraController) showFXMLFile("PerfilFeira.fxml");
+        controller.setMasterController(this);
+    }*/
 
     public Object showFXMLFile(String resourceName) {
         try {

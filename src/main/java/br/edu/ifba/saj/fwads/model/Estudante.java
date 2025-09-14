@@ -1,9 +1,7 @@
 package br.edu.ifba.saj.fwads.model;
 
-import java.util.List;
-
 import jakarta.persistence.Entity;
-import jakarta.persistence.ManyToMany;
+import jakarta.persistence.ManyToOne;
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.Size;
@@ -12,8 +10,11 @@ import jakarta.validation.constraints.Size;
 @Entity
 public class Estudante extends Usuario{
 
-    @ManyToMany(mappedBy = "estudantes")
-    private List<Projeto> projetos;
+    //@ManyToMany(mappedBy = "estudantes")
+    //private List<Projeto> projetos;
+
+    @ManyToOne
+    private Projeto projeto;
 
     public Estudante(){}
 
@@ -25,12 +26,15 @@ public class Estudante extends Usuario{
         super(email, login, senha, nome,cpf);        
     }
 
-    public List<Projeto> getProjetos() {
+    /*public List<Projeto> getProjetos() {
         return projetos;
+    }*/
+    public Projeto getProjeto(){
+        return projeto;
     }
 
-    public void setProjetos(List<Projeto> projetos) {
-        this.projetos = projetos;
+    public void setProjeto(Projeto projeto) {
+        this.projeto = projeto;
     }
 
     

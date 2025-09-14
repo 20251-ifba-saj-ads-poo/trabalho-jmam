@@ -1,14 +1,11 @@
 package br.edu.ifba.saj.fwads.model;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
-import jakarta.persistence.JoinColumn;
-import jakarta.persistence.JoinTable;
-import jakarta.persistence.ManyToMany;
 import jakarta.persistence.ManyToOne;
+import jakarta.persistence.OneToMany;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.Size;
 
@@ -23,12 +20,17 @@ public final class Projeto extends AbstractEntity{
     @ManyToOne
     private Professor lider;
     
-    @ManyToMany
-    private List<Estudante> estudantes;
+    //@ManyToOne
+    //private List<Estudante> estudantes;
     
-    @ManyToMany
-    private List<Professor> professores;
+    //@ManyToOne
+    //private List<Professor> professores;
     
+    @OneToMany(mappedBy="projeto")
+    private List<Estudante> estudante;
+    //@ManyToOne
+    //private List<Professor> professores;
+
     @ManyToOne
     private Feira feira;
 
@@ -39,13 +41,16 @@ public final class Projeto extends AbstractEntity{
         this.lider=professor;
     }
 
-    public List<Professor> getProfessores(){
+    /*public List<Professor> getProfessores(){
         return List.copyOf(professores);
     }
 
     public List<Estudante> getEstudantes(){
         return List.copyOf(estudantes);
-    }
+    }*/
+
+
+    
 
 
     public void setFeira(Feira feira) {
@@ -56,8 +61,28 @@ public final class Projeto extends AbstractEntity{
         return nome;
     }
 
-    public String getLider(){
-        return lider.getNome();
+    public Professor getLider(){
+        return lider;
+    }
+
+    public void setNome(String nome) {
+        this.nome = nome;
+    }
+
+    public void setLider(Professor lider) {
+        this.lider = lider;
+    }
+
+    public List<Estudante> getEstudante() {
+        return List.copyOf(estudante);
+    }
+
+    public void setEstudante(List<Estudante> estudante) {
+        this.estudante = estudante;
+    }
+
+    public Feira getFeira() {
+        return feira;
     }
 
     
