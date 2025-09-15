@@ -34,16 +34,7 @@ public class PerfilProfessorController {
     }
     @FXML
     public void initialize() {
-        synchronized (professor) {
-        while (professor==null) {
-            try {
-                professor.wait(200); // Releases lock and waits
-            } catch (InterruptedException e) {
-                // Handle interruption
-            }
-        }
-        // Condition is met, proceed with action
-    }
+        
         txNome.setText(professor.getNome());
         clnProjeto.setCellValueFactory(new PropertyValueFactory<>("nome"));   
         loadList();

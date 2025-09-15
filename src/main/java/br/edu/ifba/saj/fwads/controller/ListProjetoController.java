@@ -52,9 +52,10 @@ public class ListProjetoController {
     }
 
     @FXML
-    void showNovo(ActionEvent event) {/* 
-
-        Stage stage = new Stage();
+    void showNovo(ActionEvent event) { 
+        
+        masterController.showPerfilProjeto(event, tblProjeto.getSelectionModel().getSelectedItem()); 
+        /*Stage stage = new Stage();
         Scene scene = new Scene(App.loadFXML("controller/CadProjeto.fxml"), 800, 600);
         stage.setScene(scene);
         stage.initModality(Modality.APPLICATION_MODAL);

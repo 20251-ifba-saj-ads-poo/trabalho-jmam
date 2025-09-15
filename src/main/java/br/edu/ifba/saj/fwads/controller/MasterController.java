@@ -3,6 +3,7 @@ package br.edu.ifba.saj.fwads.controller;
 import br.edu.ifba.saj.fwads.App;
 import br.edu.ifba.saj.fwads.model.AbstractEntity;
 import br.edu.ifba.saj.fwads.model.Professor;
+import br.edu.ifba.saj.fwads.model.Projeto;
 import br.edu.ifba.saj.fwads.model.Usuario;
 import javafx.css.PseudoClass;
 import javafx.event.ActionEvent;
@@ -155,18 +156,29 @@ public class MasterController {
     }*/
 
     void showPerfilProfessor(ActionEvent event, Professor obj){
-        limparBotoes(event.getSource());       
+        limparBotoes(event.getSource());
+        /*synchronized (obj) {
+        while (professor==null) {
+            try {
+                professor.wait(200); // Releases lock and waits
+            } catch (InterruptedException e) {
+                // Handle interruption
+            }
+        }
+        // Condition is met, proceed with action
+    } */      
         PerfilProfessorController controller = (PerfilProfessorController) showFXMLFile("PerfilProfessor.fxml");
         controller.setObjeto(obj);
         controller.setMasterController(this);             
     }
 
-    /*void showPerfilProjeto(ActionEvent event){
+    void showPerfilProjeto(ActionEvent event, Projeto obj){
         limparBotoes(event.getSource());
         PerfilProjetoController controller = (PerfilProjetoController) showFXMLFile("PerfilProjeto.fxml");
+        controller.setObjeto(obj);
         controller.setMasterController(this);
     }
-
+    /* 
     void showPerfilFeira(ActionEvent event){
         limparBotoes(event.getSource());
         PerfilFeiraController controller = (PerfilFeiraController) showFXMLFile("PerfilFeira.fxml");
