@@ -28,17 +28,17 @@ public class PerfilProfessorController {
     public void setMasterController(MasterController masterController){
         this.masterController = masterController;
     }
-    
-    void setObjeto(Professor obj) {
-        this.professor=obj;
+
+    public void setProfessor(Professor professor) {
+        this.professor = professor;
+        txNome.setText(professor.getNome());
+        loadList(); 
     }
+    
+   
     @FXML
     public void initialize() {
-        
-        txNome.setText(professor.getNome());
-        clnProjeto.setCellValueFactory(new PropertyValueFactory<>("nome"));   
-        loadList();
-        
+        clnProjeto.setCellValueFactory(new PropertyValueFactory<>("nome"));                  
     }
     
     public void loadList(){

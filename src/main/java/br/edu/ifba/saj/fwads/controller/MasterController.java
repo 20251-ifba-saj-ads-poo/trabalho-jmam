@@ -155,7 +155,7 @@ public class MasterController {
         controller.setMasterController(this);
     }*/
 
-    void showPerfilProfessor(ActionEvent event, Professor obj){
+    void showPerfilProfessor(ActionEvent event, Professor professor){
         limparBotoes(event.getSource());
         /*synchronized (obj) {
         while (professor==null) {
@@ -168,7 +168,7 @@ public class MasterController {
         // Condition is met, proceed with action
     } */      
         PerfilProfessorController controller = (PerfilProfessorController) showFXMLFile("PerfilProfessor.fxml");
-        controller.setObjeto(obj);
+        controller.setProfessor(professor);
         controller.setMasterController(this);             
     }
 
