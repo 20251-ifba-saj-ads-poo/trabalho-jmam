@@ -26,13 +26,13 @@ public class ListProfessorController {
         loadProfessorList();
     }
 
-        public void loadProfessorList(){
-        tblProfessor.setItems(FXCollections.observableList(new Service(Professor.class).findAll()));
+    public void loadProfessorList(){
+    tblProfessor.setItems(FXCollections.observableList(new Service(Professor.class).findAll()));
     }
     @FXML
     void showNovo(ActionEvent event) {
-        masterController.showPerfilProfessor(event, tblProfessor.getSelectionModel().getSelectedItem());
-                
+        System.out.println(tblProfessor.getSelectionModel().getSelectedItem().getNome());
+        masterController.showPerfilProfessor(event, tblProfessor.getSelectionModel().getSelectedItem());                        
     }
 }
 

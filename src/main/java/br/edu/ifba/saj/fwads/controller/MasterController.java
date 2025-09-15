@@ -154,11 +154,11 @@ public class MasterController {
         controller.setMasterController(this);
     }*/
 
-    void showPerfilProfessor(ActionEvent event, AbstractEntity obj){
-        limparBotoes(event.getSource());
+    void showPerfilProfessor(ActionEvent event, Professor obj){
+        limparBotoes(event.getSource());       
         PerfilProfessorController controller = (PerfilProfessorController) showFXMLFile("PerfilProfessor.fxml");
-        controller.setMasterController(this);
         controller.setObjeto(obj);
+        controller.setMasterController(this);             
     }
 
     /*void showPerfilProjeto(ActionEvent event){
