@@ -1,18 +1,26 @@
 package br.edu.ifba.saj.fwads.controller;
 
+import br.edu.ifba.saj.fwads.model.Estudante;
 import br.edu.ifba.saj.fwads.model.Professor;
 import br.edu.ifba.saj.fwads.model.Projeto;
 import br.edu.ifba.saj.fwads.service.Service;
+import javafx.beans.property.SimpleStringProperty;
 import javafx.collections.FXCollections;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.ChoiceBox;
+import javafx.scene.control.TableColumn;
+import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.util.StringConverter;
 
 public class PerfilProjetoController {
 
+    @FXML
+    private TableColumn<Estudante, String> clnEstudante;
+    @FXML
+    private TableView<Estudante> tblEstudante;
     @FXML
     private ChoiceBox<Professor> slProfessor;
 
@@ -54,11 +62,13 @@ public class PerfilProjetoController {
         loadList();
     }
     @FXML
-    public void initialize() {       
+    public void initialize() {   
+        clnEstudante.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().getNome()));    
     }
     
     public void loadList(){
         slProfessor.setItems(FXCollections.observableList(serviceProfessor.findAll()));
+        tblEstudante.setItems(FXCollections.observableList(projeto.getEstudante()));
     }   
 
     @FXML
@@ -71,6 +81,11 @@ public class PerfilProjetoController {
         projeto.setNome(txNome.getText());
         projeto.setLider(slProfessor.getSelectionModel().getSelectedItem());
         serviceProjeto.update(projeto);
+    }
+
+    @FXML
+    void remover(ActionEvent event) {
+
     }
 
 }

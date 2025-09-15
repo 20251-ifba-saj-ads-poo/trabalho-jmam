@@ -2,6 +2,7 @@ package br.edu.ifba.saj.fwads.controller;
 
 import br.edu.ifba.saj.fwads.model.Estudante;
 import br.edu.ifba.saj.fwads.service.Service;
+import javafx.beans.property.SimpleStringProperty;
 import javafx.collections.FXCollections;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -29,7 +30,7 @@ public class ListEstudanteController {
     @FXML
     public void initialize() {
         clnNome.setCellValueFactory(new PropertyValueFactory<>("nome"));
-        clnProjeto.setCellValueFactory(new PropertyValueFactory<>("projeto"));
+        clnProjeto.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().getProjeto().getNome()));
         loadEstudanteList();
     }
 
@@ -39,6 +40,6 @@ public class ListEstudanteController {
 
     @FXML
     void showNovo(ActionEvent event) {
-
+        masterController.showPerfilEstudante(event, tblEstudante.getSelectionModel().getSelectedItem()); 
     }
 }

@@ -77,13 +77,15 @@ public final class Projeto extends AbstractEntity{
         return List.copyOf(estudante);
     }
 
-    public void setEstudante(List<Estudante> estudante) {
-        this.estudante = estudante;
+    public void setEstudante(Estudante estudante) {
+        this.estudante.add(estudante);
     }
 
     public Feira getFeira() {
         return feira;
     }
 
-    
+    public void removeEstudante(Estudante estudante){
+        this.estudante.remove(estudante);
+    }
 }
