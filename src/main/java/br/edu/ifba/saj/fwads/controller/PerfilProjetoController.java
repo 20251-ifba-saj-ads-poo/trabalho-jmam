@@ -30,11 +30,8 @@ public class PerfilProjetoController {
         this.masterController = masterController;
     }
     
-    void setObjeto(Projeto obj) {
-        this.projeto=obj;
-    }
-    @FXML
-    public void initialize() {
+    void setObjeto(Projeto projeto) {
+        this.projeto=projeto;
         slProfessor.setConverter(new StringConverter<Professor>() {
             @Override
             public String toString(Professor obj) {
@@ -53,10 +50,11 @@ public class PerfilProjetoController {
                     .orElse(null);                
             }
         });
-
-        txNome.setText(projeto.getNome());  
+        txNome.setText(projeto.getNome()); 
         loadList();
-        
+    }
+    @FXML
+    public void initialize() {       
     }
     
     public void loadList(){
@@ -70,7 +68,9 @@ public class PerfilProjetoController {
 
     @FXML
     void salvar(ActionEvent event) {
-
+        projeto.setNome(txNome.getText());
+        projeto.setLider(slProfessor.getSelectionModel().getSelectedItem());
+        serviceProjeto.update(projeto);
     }
 
 }

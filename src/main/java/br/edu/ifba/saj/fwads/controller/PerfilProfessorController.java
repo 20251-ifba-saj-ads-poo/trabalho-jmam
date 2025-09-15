@@ -1,6 +1,7 @@
 package br.edu.ifba.saj.fwads.controller;
 import br.edu.ifba.saj.fwads.model.Professor;
 import br.edu.ifba.saj.fwads.model.Projeto;
+import br.edu.ifba.saj.fwads.service.Service;
 import javafx.collections.FXCollections;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -22,6 +23,8 @@ public class PerfilProfessorController {
     private TextField txNome;
 
     private Professor professor;
+    private Service<Projeto> serviceProjeto = new Service<>(Projeto.class);
+    private Service<Professor> serviceProfessor = new Service<>(Professor.class);
 
     private MasterController masterController;
 
@@ -53,6 +56,7 @@ public class PerfilProfessorController {
     @FXML
     void salvar(ActionEvent event) {
         professor.setNome(txNome.getText());
+        serviceProfessor.update(professor);
     }
 
     

@@ -14,6 +14,8 @@ public class ListProfessorController {
     @FXML
     private TableView<Professor> tblProfessor;
 
+
+
     private MasterController masterController;
 
     public void setMasterController(MasterController masterController){

@@ -149,33 +149,23 @@ public class MasterController {
         controller.setMasterController(this);
     }
 
-    /*void showPerfilEstudante(ActionEvent event){
+    /*void showPerfilEstudante(ActionEvent event, Estudante estudante){
         limparBotoes(event.getSource());
         PerfilEstudanteController controller = (PerfilEstudanteController) showFXMLFile("PerfilEstudante.fxml");
         controller.setMasterController(this);
     }*/
 
     void showPerfilProfessor(ActionEvent event, Professor professor){
-        limparBotoes(event.getSource());
-        /*synchronized (obj) {
-        while (professor==null) {
-            try {
-                professor.wait(200); // Releases lock and waits
-            } catch (InterruptedException e) {
-                // Handle interruption
-            }
-        }
-        // Condition is met, proceed with action
-    } */      
+        limparBotoes(event.getSource());    
         PerfilProfessorController controller = (PerfilProfessorController) showFXMLFile("PerfilProfessor.fxml");
         controller.setProfessor(professor);
         controller.setMasterController(this);             
     }
 
-    void showPerfilProjeto(ActionEvent event, Projeto obj){
+    void showPerfilProjeto(ActionEvent event, Projeto Projeto){
         limparBotoes(event.getSource());
         PerfilProjetoController controller = (PerfilProjetoController) showFXMLFile("PerfilProjeto.fxml");
-        controller.setObjeto(obj);
+        controller.setObjeto(Projeto);
         controller.setMasterController(this);
     }
     /* 

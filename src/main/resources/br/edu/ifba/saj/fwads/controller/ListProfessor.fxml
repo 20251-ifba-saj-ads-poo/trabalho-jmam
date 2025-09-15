@@ -11,8 +11,7 @@
    <center>
       <TableView fx:id="tblProfessor">
          <columns>
-            <TableColumn fx:id="clnNome" editable="false" minWidth="-1.0" prefWidth="201.0" text="Nome" />
-            <TableColumn fx:id="clnProjeto" editable="false" minWidth="-1.0" prefWidth="379.99999084472654" text="Projeto" />
+            <TableColumn fx:id="clnNome" editable="false" minWidth="-1.0" prefWidth="581.5999939084053" text="Nome" />
          </columns>
       </TableView>
    </center>
