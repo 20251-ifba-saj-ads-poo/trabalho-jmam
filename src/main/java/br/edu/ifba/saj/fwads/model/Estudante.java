@@ -37,6 +37,11 @@ public class Estudante extends Usuario{
         this.projeto = projeto;
     }
 
+    public String nomeProjeto(){
+        if(projeto!=null)
+            return projeto.getNome();
+        return "";
+    }
     
 
 

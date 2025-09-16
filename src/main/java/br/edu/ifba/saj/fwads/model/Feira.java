@@ -1,7 +1,5 @@
 package br.edu.ifba.saj.fwads.model;
 
-import java.util.ArrayList;
-import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
 
@@ -27,10 +25,9 @@ public class Feira extends AbstractEntity {
 
     public Feira(){}
 
-    public Feira(String nome/*, Date data*/){
-        this.nome=nome;
-        //this.data='00/00/00';
-        
+    public Feira(String nome, Date data){
+        setNome(nome);
+        setData(data);        
     }
 
     public String getNome(){

@@ -3,6 +3,7 @@ package br.edu.ifba.saj.fwads.controller;
 import br.edu.ifba.saj.fwads.App;
 import br.edu.ifba.saj.fwads.model.AbstractEntity;
 import br.edu.ifba.saj.fwads.model.Estudante;
+import br.edu.ifba.saj.fwads.model.Feira;
 import br.edu.ifba.saj.fwads.model.Professor;
 import br.edu.ifba.saj.fwads.model.Projeto;
 import br.edu.ifba.saj.fwads.model.Usuario;
@@ -170,12 +171,13 @@ public class MasterController {
         controller.setObjeto(Projeto);
         controller.setMasterController(this);
     }
-    /* 
-    void showPerfilFeira(ActionEvent event){
+
+    void showPerfilFeira(ActionEvent event,Feira feira){
         limparBotoes(event.getSource());
         PerfilFeiraController controller = (PerfilFeiraController) showFXMLFile("PerfilFeira.fxml");
+        controller.setFeira(feira);
         controller.setMasterController(this);
-    }*/
+    }
 
     public Object showFXMLFile(String resourceName) {
         try {

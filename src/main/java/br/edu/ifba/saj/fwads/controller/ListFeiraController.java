@@ -73,6 +73,6 @@ public class ListFeiraController {
     }
     @FXML
     void showNovo(ActionEvent event) {
-
+        masterController.showPerfilFeira(event, tblFeira.getSelectionModel().getSelectedItem());
     }
 }

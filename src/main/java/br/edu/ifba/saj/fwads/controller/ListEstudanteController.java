@@ -30,7 +30,8 @@ public class ListEstudanteController {
     @FXML
     public void initialize() {
         clnNome.setCellValueFactory(new PropertyValueFactory<>("nome"));
-        clnProjeto.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().getProjeto().getNome()));
+            clnProjeto.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().nomeProjeto()));
+        
         loadEstudanteList();
     }
 
