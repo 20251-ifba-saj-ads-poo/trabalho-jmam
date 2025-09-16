@@ -22,11 +22,11 @@ public class Professor extends Usuario{
     public Professor() {  
     }
     
-    public Professor(@NotBlank @Email String email, @NotBlank @Size(min=5) String nome, @NotBlank @Size(min = 11, max = 11) String cpf) {
+    public Professor(@NotBlank @Email String email, @NotBlank @Size(min=5) String nome, @NotBlank @Size(min = 11, max = 11) String cpf) throws Exception {
         super(email,email,cpf, nome, cpf);
     }
 
-    public Professor(@NotBlank @Email String email, @NotBlank @Size(min=5) String login,@NotBlank @Size(min=5) String senha,@NotBlank String nome,@NotBlank @Size(min = 11, max = 11) String cpf) {
+    public Professor(@NotBlank @Email String email, @NotBlank @Size(min=5) String login,@NotBlank @Size(min=5) String senha,@NotBlank String nome,@NotBlank @Size(min = 11, max = 11) String cpf) throws Exception {
         super(email, login, senha, nome,cpf);
     }
 

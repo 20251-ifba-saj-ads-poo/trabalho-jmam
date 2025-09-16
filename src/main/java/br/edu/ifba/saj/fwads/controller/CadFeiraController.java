@@ -48,10 +48,15 @@ public class CadFeiraController {
 
     @FXML
     void salvar(ActionEvent event) {
-        Feira novoFeira = new Feira(txNome.getText(), data);
-        serviceFeira.create(novoFeira);
-        new Alert(AlertType.INFORMATION, 
-        "Feira:"+novoFeira.getNome()+" cadastrado com sucesso").showAndWait();
+        try {
+            Feira novoFeira = new Feira(txNome.getText(), data);
+            serviceFeira.create(novoFeira);
+            new Alert(AlertType.INFORMATION, 
+            "Feira:"+novoFeira.getNome()+" cadastrado com sucesso").showAndWait();
+        } catch (Exception e) {
+            new Alert(AlertType.ERROR, e.getMessage()).showAndWait();
+            e.printStackTrace();
+        }
         limparTela(event);
         if (listFeiraController!= null) {
             listFeiraController.loadFeiraList();

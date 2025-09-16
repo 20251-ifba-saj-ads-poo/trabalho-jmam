@@ -31,7 +31,7 @@ public class Usuario extends AbstractEntity {
 
     public Usuario(){}
 
-    public Usuario(String email, String login, String senha, String nome, String cpf) {
+    public Usuario(String email, String login, String senha, String nome, String cpf) throws Exception {
         setSenha(senha);
         setLogin(login);
         setEmail(email);
@@ -60,8 +60,11 @@ public class Usuario extends AbstractEntity {
         return email;
     }
 
-    public void setEmail(String email) {
-        this.email = email;
+    public void setEmail(String email) throws Exception {       
+        if(email.contains("@ifba.com"))
+            this.email = email;
+        else
+            throw new Exception("Email inválido"); 
     }
     @Override
     public String toString() {
@@ -76,8 +79,11 @@ public class Usuario extends AbstractEntity {
         this.nome=nome;
     }
 
-    public void setCPF(String cpf) {
-        this.cpf=cpf;
+    public void setCPF(String cpf) throws Exception {
+        if(cpf!=null && cpf.matches("\\d+") && cpf.length()==11)
+            this.cpf=cpf;
+        else
+            throw new Exception("CPF inválido"); 
     }
 
     public String getCPF(){

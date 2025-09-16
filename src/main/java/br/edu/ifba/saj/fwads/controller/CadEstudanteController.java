@@ -27,12 +27,22 @@ public class CadEstudanteController {
     }
 
     @FXML
+    public void initialize() {
+        txEmail.setText("@ifba.com");
+    }
+
+    @FXML
     private void salvar() {
-        Estudante novoEstudante = new Estudante(txEmail.getText(),txNome.getText(),txCPF.getText());
-        serviceEstudante.create(novoEstudante);
-        new Alert(AlertType.INFORMATION, 
-        "Estudante:"+novoEstudante.getNome()+" cadastrado com sucesso").showAndWait();
-        limparTela();
+        try {
+            Estudante novoEstudante = new Estudante(txEmail.getText(),txNome.getText(),txCPF.getText());
+            serviceEstudante.create(novoEstudante);
+            new Alert(AlertType.INFORMATION, 
+            "Estudante:"+novoEstudante.getNome()+" cadastrado com sucesso").showAndWait();
+            limparTela();            
+        } catch (Exception e) {
+            new Alert(AlertType.ERROR, e.getMessage()).showAndWait();
+            e.printStackTrace();
+        }        
         if (listEstudanteController!= null) {
             listEstudanteController.loadEstudanteList();
         }

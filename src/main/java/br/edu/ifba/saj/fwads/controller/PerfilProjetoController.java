@@ -37,7 +37,7 @@ public class PerfilProjetoController {
         this.masterController = masterController;
     }
     
-    void setObjeto(Projeto projeto) {
+    void setProjeto(Projeto projeto) {
         this.projeto=projeto;
         slProfessor.setValue(projeto.getLider());
         slProfessor.setConverter(new StringConverter<Professor>() {

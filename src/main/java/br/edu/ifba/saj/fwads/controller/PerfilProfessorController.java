@@ -37,8 +37,7 @@ public class PerfilProfessorController {
         txNome.setText(professor.getNome());
         loadList(); 
     }
-    
-   
+       
     @FXML
     public void initialize() {
         clnProjeto.setCellValueFactory(new PropertyValueFactory<>("nome"));                  

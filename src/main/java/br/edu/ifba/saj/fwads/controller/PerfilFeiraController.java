@@ -1,5 +1,10 @@
 package br.edu.ifba.saj.fwads.controller;
 
+import java.time.Instant;
+import java.time.LocalDate;
+import java.time.ZoneId;
+import java.util.Date;
+
 import br.edu.ifba.saj.fwads.model.Feira;
 import br.edu.ifba.saj.fwads.model.Projeto;
 import br.edu.ifba.saj.fwads.service.Service;
@@ -12,7 +17,7 @@ import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 
 public class PerfilFeiraController {
-
+    private Date data;
     @FXML
     private TableColumn<Projeto, String> clnProjeto;
 
@@ -43,7 +48,9 @@ public class PerfilFeiraController {
 
     @FXML
     void dataPick(ActionEvent event) {
-
+        LocalDate localDate = dataPicker.getValue();
+        Instant instant = Instant.from(localDate.atStartOfDay(ZoneId.systemDefault()));
+        data = Date.from(instant);
     }
 
     @FXML

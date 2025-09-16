@@ -25,7 +25,7 @@ public class Feira extends AbstractEntity {
 
     public Feira(){}
 
-    public Feira(String nome, Date data){
+    public Feira(String nome, Date data) throws Exception{
         setNome(nome);
         setData(data);        
     }
@@ -42,8 +42,11 @@ public class Feira extends AbstractEntity {
         return data;
     }
 
-    public void setData(Date data) {
-        this.data = data;
+    public void setData(Date data) throws Exception {       
+        if(!data.before(new Date()))
+            this.data = data;
+        else
+            throw new Exception ("Data inválida");
     }
 
     public List<Projeto> getProjetos() {

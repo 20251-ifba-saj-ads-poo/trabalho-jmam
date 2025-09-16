@@ -168,7 +168,7 @@ public class MasterController {
     void showPerfilProjeto(ActionEvent event, Projeto Projeto){
         limparBotoes(event.getSource());
         PerfilProjetoController controller = (PerfilProjetoController) showFXMLFile("PerfilProjeto.fxml");
-        controller.setObjeto(Projeto);
+        controller.setProjeto(Projeto);
         controller.setMasterController(this);
     }
 

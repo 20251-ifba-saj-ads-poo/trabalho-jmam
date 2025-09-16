@@ -1,22 +1,16 @@
 package br.edu.ifba.saj.fwads.repository;
 
+import java.util.List;
+import java.util.Map;
+
+import br.edu.ifba.saj.fwads.model.AbstractEntity;
+import br.edu.ifba.saj.fwads.model.Professor;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.EntityManagerFactory;
 import jakarta.persistence.Persistence;
 import jakarta.persistence.Query;
 import jakarta.persistence.criteria.CriteriaBuilder;
 import jakarta.persistence.criteria.CriteriaQuery;
-
-import java.nio.charset.StandardCharsets;
-import java.nio.file.Files;
-import java.nio.file.Paths;
-import java.util.List;
-import java.util.Map;
-
-import org.hibernate.Session;
-
-import br.edu.ifba.saj.fwads.model.AbstractEntity;
-import br.edu.ifba.saj.fwads.model.Professor;
 
 public class Repository<T extends AbstractEntity> {
 
@@ -44,18 +38,23 @@ public class Repository<T extends AbstractEntity> {
         q.setParameter("login", "admin");
         q.setParameter("senha", "admin");
         List<?> result = q.getResultList();        
-        if (result.isEmpty()) {
-            Professor admin = new Professor();
-            admin.setLogin("admin");
-            admin.setSenha("admin");        
-            admin.setNome("Administrador");
-            admin.setEmail("admin@sistema.com");
-            admin.setCPF("11111111111");
-            entityManager.getTransaction().begin();
-            entityManager.persist(admin);
-            entityManager.getTransaction().commit();
-            entityManager.close();
+        try {
+            if (result.isEmpty()) {
+                Professor admin = new Professor();
+                admin.setLogin("admin");
+                admin.setSenha("admin");        
+                admin.setNome("Administrador");
+                admin.setEmail("admin@ifba.com");
+                admin.setCPF("11111111111");
+                entityManager.getTransaction().begin();
+                entityManager.persist(admin);
+                entityManager.getTransaction().commit();
+                entityManager.close();
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
         }
+        
         
     }    
 

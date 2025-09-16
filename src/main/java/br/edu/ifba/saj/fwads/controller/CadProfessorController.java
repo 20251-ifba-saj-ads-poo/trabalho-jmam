@@ -30,17 +30,29 @@ public class CadProfessorController {
 
     @FXML
     private void salvar(ActionEvent event) {
-        Professor novoProfessor = new Professor(txEmail.getText(),
+        try {
+            Professor novoProfessor = new Professor(txEmail.getText(),
                     txNome.getText(),
                     txCPF.getText());
-        serviceProfessor.create(novoProfessor);
-        new Alert(AlertType.INFORMATION, 
-        "Professor:"+novoProfessor.getNome()+" cadastrado com sucesso").showAndWait();
-        limparTela(event);
+                serviceProfessor.create(novoProfessor);
+                new Alert(AlertType.INFORMATION, 
+                "Professor:"+novoProfessor.getNome()+" cadastrado com sucesso").showAndWait();
+                limparTela(event);            
+        } catch (Exception e) {
+            new Alert(AlertType.ERROR, e.getMessage()).showAndWait();
+            e.printStackTrace();
+        }
+        
+
         if (listProfessorController!= null) {
             listProfessorController.loadProfessorList();
         }
     }
+    @FXML
+    public void initialize() {
+        txEmail.setText("@ifba.com");
+    }
+
     @FXML
     private void limparTela(ActionEvent event) {
         txNome.setText("");
