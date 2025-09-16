@@ -1,6 +1,7 @@
 package br.edu.ifba.saj.fwads.controller;
 
 import br.edu.ifba.saj.fwads.model.Estudante;
+import br.edu.ifba.saj.fwads.model.Professor;
 import br.edu.ifba.saj.fwads.model.Projeto;
 import br.edu.ifba.saj.fwads.service.Service;
 import javafx.collections.FXCollections;
@@ -69,7 +70,10 @@ public class PerfilEstudanteController {
     void salvar(ActionEvent event) {
         estudante.setNome(txNome.getText());
         estudante.setProjeto(slProjeto.getSelectionModel().getSelectedItem());
+        estudante.setDataModificacao();
+        estudante.setModificador((Professor)masterController.getUsuarioLogado());
         serviceEstudante.update(estudante);
+        
     }
 
 }

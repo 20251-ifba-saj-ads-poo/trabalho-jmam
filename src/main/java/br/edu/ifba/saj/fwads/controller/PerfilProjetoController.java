@@ -80,6 +80,8 @@ public class PerfilProjetoController {
     void salvar(ActionEvent event) {
         projeto.setNome(txNome.getText());
         projeto.setLider(slProfessor.getSelectionModel().getSelectedItem());
+        projeto.setDataModificacao();
+        projeto.setModificador((Professor)masterController.getUsuarioLogado());
         serviceProjeto.update(projeto);
     }
 

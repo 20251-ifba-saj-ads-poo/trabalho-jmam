@@ -43,6 +43,10 @@ public class CadProjetoController {
 
         Projeto novoProjeto = new Projeto(txTitulo.getText(),
         slProfessor.getSelectionModel().getSelectedItem());
+        novoProjeto.setDataCriacao();
+        novoProjeto.setCriador((Professor)masterController.getUsuarioLogado());
+        novoProjeto.setDataModificacao();
+        novoProjeto.setModificador((Professor)masterController.getUsuarioLogado());
         serviceProjeto.create(novoProjeto);
         new Alert(AlertType.INFORMATION, 
         "Projeto:"+novoProjeto.getNome()+" cadastrado com sucesso!").showAndWait();

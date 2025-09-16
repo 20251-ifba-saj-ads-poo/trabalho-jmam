@@ -34,6 +34,10 @@ public class CadProfessorController {
             Professor novoProfessor = new Professor(txEmail.getText(),
                     txNome.getText(),
                     txCPF.getText());
+                novoProfessor.setDataCriacao();
+                novoProfessor.setCriador((Professor)masterController.getUsuarioLogado());
+                novoProfessor.setDataModificacao();
+                novoProfessor.setModificador((Professor)masterController.getUsuarioLogado());    
                 serviceProfessor.create(novoProfessor);
                 new Alert(AlertType.INFORMATION, 
                 "Professor:"+novoProfessor.getNome()+" cadastrado com sucesso").showAndWait();

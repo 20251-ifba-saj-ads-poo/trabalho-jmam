@@ -1,5 +1,6 @@
 package br.edu.ifba.saj.fwads.controller;
 import br.edu.ifba.saj.fwads.model.Estudante;
+import br.edu.ifba.saj.fwads.model.Professor;
 import br.edu.ifba.saj.fwads.service.Service;
 import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
@@ -34,7 +35,11 @@ public class CadEstudanteController {
     @FXML
     private void salvar() {
         try {
-            Estudante novoEstudante = new Estudante(txEmail.getText(),txNome.getText(),txCPF.getText());
+            Estudante novoEstudante = new Estudante(txEmail.getText(),txNome.getText(),txCPF.getText());            
+            novoEstudante.setDataCriacao();
+            novoEstudante.setCriador((Professor)masterController.getUsuarioLogado());
+            novoEstudante.setDataModificacao();
+            novoEstudante.setModificador((Professor)masterController.getUsuarioLogado());
             serviceEstudante.create(novoEstudante);
             new Alert(AlertType.INFORMATION, 
             "Estudante:"+novoEstudante.getNome()+" cadastrado com sucesso").showAndWait();

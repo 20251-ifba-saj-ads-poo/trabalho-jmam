@@ -6,6 +6,7 @@ import java.time.ZoneId;
 import java.util.Date;
 
 import br.edu.ifba.saj.fwads.model.Feira;
+import br.edu.ifba.saj.fwads.model.Professor;
 import br.edu.ifba.saj.fwads.service.Service;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -50,6 +51,10 @@ public class CadFeiraController {
     void salvar(ActionEvent event) {
         try {
             Feira novoFeira = new Feira(txNome.getText(), data);
+            novoFeira.setDataCriacao();
+            novoFeira.setCriador((Professor)masterController.getUsuarioLogado());
+            novoFeira.setDataModificacao();
+            novoFeira.setModificador((Professor)masterController.getUsuarioLogado());
             serviceFeira.create(novoFeira);
             new Alert(AlertType.INFORMATION, 
             "Feira:"+novoFeira.getNome()+" cadastrado com sucesso").showAndWait();

@@ -37,8 +37,8 @@ public final class Projeto extends AbstractEntity{
     public Projeto(){}
 
     public Projeto(@NotBlank @Size(min=5) String nome, @NotBlank Professor professor){
-        this.nome=nome;
-        this.lider=professor;
+        setNome(nome);
+        setLider(lider);
     }
 
     /*public List<Professor> getProfessores(){

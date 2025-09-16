@@ -54,7 +54,9 @@ public class PerfilProfessorController {
 
     @FXML
     void salvar(ActionEvent event) {
-        professor.setNome(txNome.getText());
+        professor.setNome(txNome.getText());       
+        professor.setDataModificacao();
+        professor.setModificador((Professor)masterController.getUsuarioLogado());
         serviceProfessor.update(professor);
     }
 

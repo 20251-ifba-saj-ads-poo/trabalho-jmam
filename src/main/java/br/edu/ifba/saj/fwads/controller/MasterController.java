@@ -54,6 +54,10 @@ public class MasterController {
 
     private Usuario usuarioLogado;
 
+    public Usuario getUsuarioLogado(){
+        return usuarioLogado;
+    }
+
     public void setUsuarioLogado(Usuario usuarioLogado) {
         this.usuarioLogado = usuarioLogado;
         setEmail(usuarioLogado.getNome());
