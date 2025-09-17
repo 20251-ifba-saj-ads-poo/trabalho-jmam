@@ -56,7 +56,14 @@ public class Feira extends AbstractEntity {
     public void setProjetos(List<Projeto> projetos) {
         this.projetos = projetos;
     }
+
+    public void addProjeto(Projeto projeto){
+        projetos.add(projeto);
+    }
     
+    public void removeProjeto(Projeto projeto){
+        projetos.remove(projeto);
+    }
 
     
 }

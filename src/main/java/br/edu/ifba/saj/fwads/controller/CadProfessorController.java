@@ -1,4 +1,6 @@
 package br.edu.ifba.saj.fwads.controller;
+import java.util.Map;
+
 import br.edu.ifba.saj.fwads.model.Professor;
 import br.edu.ifba.saj.fwads.service.Service;
 import javafx.event.ActionEvent;
@@ -34,6 +36,10 @@ public class CadProfessorController {
             Professor novoProfessor = new Professor(txEmail.getText(),
                     txNome.getText(),
                     txCPF.getText());
+                if(!serviceProfessor.findByMap(Map.of("cpf", novoProfessor.getCPF())).isEmpty())
+                    throw new Exception ("CPF já cadastrado");
+                if(!serviceProfessor.findByMap(Map.of("email", novoProfessor.getEmail())).isEmpty())
+                    throw new Exception ("Email já cadastrado");
                 novoProfessor.setDataCriacao();
                 novoProfessor.setCriador((Professor)masterController.getUsuarioLogado());
                 novoProfessor.setDataModificacao();

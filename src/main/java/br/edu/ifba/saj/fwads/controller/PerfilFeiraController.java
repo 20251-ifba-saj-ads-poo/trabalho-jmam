@@ -6,8 +6,11 @@ import java.time.ZoneId;
 import java.util.Date;
 
 import br.edu.ifba.saj.fwads.model.Feira;
+import br.edu.ifba.saj.fwads.model.Professor;
 import br.edu.ifba.saj.fwads.model.Projeto;
 import br.edu.ifba.saj.fwads.service.Service;
+import javafx.beans.property.SimpleStringProperty;
+import javafx.collections.FXCollections;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.ChoiceBox;
@@ -24,10 +27,10 @@ public class PerfilFeiraController {
     @FXML
     private DatePicker dataPicker;
     @FXML
-    private ChoiceBox<?> slProjeto;
+    private ChoiceBox<Projeto> slProjeto;
 
     @FXML
-    private TableView<?> tblProjetos;
+    private TableView<Projeto> tblProjetos;
 
     @FXML
     private TextField txNome;
@@ -42,8 +45,18 @@ public class PerfilFeiraController {
     }
 
     void setFeira(Feira feira) {
-        this.feira=feira;
+        this.feira=feira;        
+        loadList();
+    }
 
+    @FXML
+    public void initialize() {   
+        clnProjeto.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().getNome()));
+    }
+
+    public void loadList(){
+        slProjeto.setItems(FXCollections.observableList(serviceProjeto.findAll()));
+        tblProjetos.setItems(FXCollections.observableList(feira.getProjetos()));
     }
 
     @FXML
@@ -55,22 +68,31 @@ public class PerfilFeiraController {
 
     @FXML
     void adicionar(ActionEvent event) {
-        
+        feira.addProjeto(slProjeto.getSelectionModel().getSelectedItem());      
+        feira.setDataModificacao();
+        feira.setModificador((Professor)masterController.getUsuarioLogado());
+        serviceFeira.update(feira);
     }
 
     @FXML
     void remover(ActionEvent event) {
-
+        feira.addProjeto(slProjeto.getSelectionModel().getSelectedItem());      
+        feira.setDataModificacao();
+        feira.setModificador((Professor)masterController.getUsuarioLogado());
+        serviceFeira.update(feira);
     }
 
     @FXML
     void retornar(ActionEvent event) {
-
+        masterController.showListFeira(event);
     }
 
     @FXML
     void salvar(ActionEvent event) {
-
+        feira.setNome(txNome.getText());       
+        feira.setDataModificacao();
+        feira.setModificador((Professor)masterController.getUsuarioLogado());
+        serviceFeira.update(feira);
     }
 
 }

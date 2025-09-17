@@ -36,8 +36,7 @@ public class Usuario extends AbstractEntity {
         setLogin(login);
         setEmail(email);
         setNome(nome);
-        setCPF(cpf);
-        
+        setCPF(cpf);        
     }
 
     

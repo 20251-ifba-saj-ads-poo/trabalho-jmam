@@ -1,9 +1,11 @@
 package br.edu.ifba.saj.fwads.model;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
+import jakarta.persistence.ManyToMany;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.OneToMany;
 import jakarta.validation.constraints.NotBlank;
@@ -28,30 +30,23 @@ public final class Projeto extends AbstractEntity{
     
     @OneToMany(mappedBy="projeto")
     private List<Estudante> estudante;
-    //@ManyToOne
-    //private List<Professor> professores;
+    
+    @ManyToMany (targetEntity = Professor.class)
+    private List<Professor> professores;
+
+    
 
     @ManyToOne
     private Feira feira;
 
     public Projeto(){}
 
-    public Projeto(@NotBlank @Size(min=5) String nome, @NotBlank Professor professor){
+    public Projeto(@NotBlank @Size(min=5) String nome, @NotBlank Professor professor) throws Exception{
         setNome(nome);
-        setLider(lider);
+        setLider(professor);
+        professores = new ArrayList<Professor>();
+        professores.add(professor);
     }
-
-    /*public List<Professor> getProfessores(){
-        return List.copyOf(professores);
-    }
-
-    public List<Estudante> getEstudantes(){
-        return List.copyOf(estudantes);
-    }*/
-
-
-    
-
 
     public void setFeira(Feira feira) {
         this.feira = feira;
@@ -65,19 +60,26 @@ public final class Projeto extends AbstractEntity{
         return lider;
     }
 
-    public void setNome(String nome) {
-        this.nome = nome;
+    public void setNome(String nome) throws Exception {
+        if(!nome.equals(""))
+            this.nome = nome;
+        else
+            throw new Exception ("Nome não pode ser deixado em branco");
     }
 
-    public void setLider(Professor lider) {
-        this.lider = lider;
+    public void setLider(Professor lider) throws Exception {
+        if(lider!=null)
+            this.lider = lider;
+        else
+            throw new Exception ("É obrigatório selecionar um professor");
     }
 
     public List<Estudante> getEstudante() {
         return List.copyOf(estudante);
     }
 
-    public void setEstudante(Estudante estudante) {
+    
+    public void addEstudante(Estudante estudante) {
         this.estudante.add(estudante);
     }
 
@@ -88,4 +90,22 @@ public final class Projeto extends AbstractEntity{
     public void removeEstudante(Estudante estudante){
         this.estudante.remove(estudante);
     }
+
+    public void setEstudante(List<Estudante> estudante) {
+        this.estudante = estudante;
+    }
+
+    public List<Professor> getProfessores() {
+        return List.copyOf(professores);
+    }
+
+    public void setProfessores(List<Professor> professores) {
+        this.professores = professores;
+    }
+
+    public void addProfessor(Professor professor) {
+        if(!professores.contains(professor))
+            this.professores.add(professor);
+    }
+
 }

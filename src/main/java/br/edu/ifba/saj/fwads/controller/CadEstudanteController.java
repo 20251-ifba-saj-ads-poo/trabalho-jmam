@@ -1,4 +1,6 @@
 package br.edu.ifba.saj.fwads.controller;
+import java.util.Map;
+
 import br.edu.ifba.saj.fwads.model.Estudante;
 import br.edu.ifba.saj.fwads.model.Professor;
 import br.edu.ifba.saj.fwads.service.Service;
@@ -35,7 +37,11 @@ public class CadEstudanteController {
     @FXML
     private void salvar() {
         try {
-            Estudante novoEstudante = new Estudante(txEmail.getText(),txNome.getText(),txCPF.getText());            
+            Estudante novoEstudante = new Estudante(txEmail.getText(),txNome.getText(),txCPF.getText());                      
+            if(!serviceEstudante.findByMap(Map.of("cpf", novoEstudante.getCPF())).isEmpty())
+                throw new Exception ("CPF já cadastrado");
+            if(!serviceEstudante.findByMap(Map.of("email", novoEstudante.getEmail())).isEmpty())
+                throw new Exception ("Email já cadastrado");
             novoEstudante.setDataCriacao();
             novoEstudante.setCriador((Professor)masterController.getUsuarioLogado());
             novoEstudante.setDataModificacao();

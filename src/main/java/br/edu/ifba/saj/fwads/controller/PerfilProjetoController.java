@@ -8,6 +8,8 @@ import javafx.beans.property.SimpleStringProperty;
 import javafx.collections.FXCollections;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.scene.control.Alert;
+import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
@@ -22,7 +24,10 @@ public class PerfilProjetoController {
     private TableView<Estudante> tblEstudante;
     @FXML
     private ChoiceBox<Professor> slProfessor;
-
+    @FXML
+    private TableView<Professor> tblProfessores;
+    @FXML
+    private TableColumn<Professor, String> clnProfessores;
     @FXML
     private TextField txNome;
 
@@ -63,12 +68,14 @@ public class PerfilProjetoController {
     }
     @FXML
     public void initialize() {   
-        clnEstudante.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().getNome()));    
+        clnEstudante.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().getNome()));
+        clnProfessores.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().getNome()));    
     }
     
     public void loadList(){
         slProfessor.setItems(FXCollections.observableList(serviceProfessor.findAll()));
         tblEstudante.setItems(FXCollections.observableList(projeto.getEstudante()));
+        tblProfessores.setItems(FXCollections.observableList(projeto.getProfessores()));
     }   
 
     @FXML
@@ -77,17 +84,33 @@ public class PerfilProjetoController {
     }
 
     @FXML
-    void salvar(ActionEvent event) {
-        projeto.setNome(txNome.getText());
-        projeto.setLider(slProfessor.getSelectionModel().getSelectedItem());
+    void adicionar(ActionEvent event) {
+        projeto.addProfessor(slProfessor.getSelectionModel().getSelectedItem());
         projeto.setDataModificacao();
         projeto.setModificador((Professor)masterController.getUsuarioLogado());
         serviceProjeto.update(projeto);
     }
 
     @FXML
-    void remover(ActionEvent event) {
+    void salvar(ActionEvent event) {
+        try {
+            projeto.setNome(txNome.getText());
+            projeto.setLider(slProfessor.getSelectionModel().getSelectedItem());
+            projeto.setDataModificacao();
+            projeto.setModificador((Professor)masterController.getUsuarioLogado());
+            serviceProjeto.update(projeto);
+        } catch (Exception e) {
+            new Alert(AlertType.ERROR, e.getMessage()).showAndWait();
+            e.printStackTrace();
+        }
+    }
 
+    @FXML
+    void remover(ActionEvent event) {
+        projeto.removeEstudante(tblEstudante.getSelectionModel().getSelectedItem());
+        projeto.setDataModificacao();
+        projeto.setModificador((Professor)masterController.getUsuarioLogado());
+        serviceProjeto.update(projeto);
     }
 
 }

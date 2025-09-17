@@ -40,18 +40,22 @@ public class CadProjetoController {
 
     @FXML
     void salvar(ActionEvent event) {
-
-        Projeto novoProjeto = new Projeto(txTitulo.getText(),
-        slProfessor.getSelectionModel().getSelectedItem());
-        novoProjeto.setDataCriacao();
-        novoProjeto.setCriador((Professor)masterController.getUsuarioLogado());
-        novoProjeto.setDataModificacao();
-        novoProjeto.setModificador((Professor)masterController.getUsuarioLogado());
-        serviceProjeto.create(novoProjeto);
-        new Alert(AlertType.INFORMATION, 
-        "Projeto:"+novoProjeto.getNome()+" cadastrado com sucesso!").showAndWait();
-
-        limparTela(event);
+        try {
+            Projeto novoProjeto = new Projeto(txTitulo.getText(),
+            slProfessor.getSelectionModel().getSelectedItem());
+            novoProjeto.setDataCriacao();
+            novoProjeto.setCriador((Professor)masterController.getUsuarioLogado());
+            novoProjeto.setDataModificacao();
+            novoProjeto.setModificador((Professor)masterController.getUsuarioLogado());
+            serviceProjeto.create(novoProjeto);
+            new Alert(AlertType.INFORMATION, 
+            "Projeto:"+novoProjeto.getNome()+" cadastrado com sucesso!").showAndWait();
+            limparTela(event);
+        } catch (Exception e) {
+            new Alert(AlertType.ERROR, e.getMessage()).showAndWait();
+            e.printStackTrace();
+        }
+        
         if (listProjetoController!=null) {
             listProjetoController.loadProjetoList();
         }
