@@ -64,7 +64,7 @@ public class Usuario extends AbstractEntity {
         if(email.contains("@ifba.com"))
             this.email = email;
         else
-            throw new Exception("Email inválido"); 
+            throw new Exception("Email inválido / Formato aceito -@ifba.com "); 
     }
     @Override
     public String toString() {
@@ -83,7 +83,7 @@ public class Usuario extends AbstractEntity {
         if(cpf!=null && cpf.matches("\\d+") && cpf.length()==11)
             this.cpf=cpf;
         else
-            throw new Exception("CPF inválido"); 
+            throw new Exception("CPF inválido / Formato aceito 11 digitos numericos sem pontuação"); 
     }
 
     public String getCPF(){

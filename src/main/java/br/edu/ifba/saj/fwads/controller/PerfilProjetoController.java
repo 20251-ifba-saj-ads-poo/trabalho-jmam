@@ -63,13 +63,14 @@ public class PerfilProjetoController {
                     .orElse(null);                
             }
         });
-        txNome.setText(projeto.getNome()); 
+        txNome.setText(projeto.getNome());
+        clnEstudante.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().getNome()));
+        clnProfessores.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().getNome())); 
         loadList();
     }
     @FXML
     public void initialize() {   
-        clnEstudante.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().getNome()));
-        clnProfessores.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().getNome()));    
+            
     }
     
     public void loadList(){
@@ -89,6 +90,7 @@ public class PerfilProjetoController {
         projeto.setDataModificacao();
         projeto.setModificador((Professor)masterController.getUsuarioLogado());
         serviceProjeto.update(projeto);
+        loadList();
     }
 
     @FXML
@@ -107,10 +109,16 @@ public class PerfilProjetoController {
 
     @FXML
     void remover(ActionEvent event) {
-        projeto.removeEstudante(tblEstudante.getSelectionModel().getSelectedItem());
+        if(tblProfessores.getSelectionModel().getSelectedItem()==projeto.getLider()){
+            new Alert(AlertType.INFORMATION, 
+            "Professor "+projeto.getLider().getNome()+" é lider do projeto e não pode ser excluido.").showAndWait();
+            return;
+        }
+        projeto.removeProfessor(tblProfessores.getSelectionModel().getSelectedItem());
         projeto.setDataModificacao();
         projeto.setModificador((Professor)masterController.getUsuarioLogado());
         serviceProjeto.update(projeto);
+        loadList();
     }
 
 }

@@ -108,4 +108,8 @@ public final class Projeto extends AbstractEntity{
             this.professores.add(professor);
     }
 
+    public void removeProfessor(Professor professor){
+        this.professores.remove(professor);
+    }
+
 }

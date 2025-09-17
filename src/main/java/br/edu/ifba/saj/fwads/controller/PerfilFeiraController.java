@@ -18,6 +18,7 @@ import javafx.scene.control.DatePicker;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
+import javafx.util.StringConverter;
 
 public class PerfilFeiraController {
     private Date data;
@@ -46,12 +47,32 @@ public class PerfilFeiraController {
 
     void setFeira(Feira feira) {
         this.feira=feira;        
-        loadList();
+        slProjeto.setConverter(new StringConverter<Projeto>() {
+            @Override
+            public String toString(Projeto obj) {
+                if (obj != null) {
+                    return obj.getNome();
+                }
+                return "";
+            }
+
+            @Override
+            public Projeto fromString(String stringProjeto) {
+                return serviceProjeto.findAll()
+                    .stream()
+                    .filter(projeto -> stringProjeto.equals(projeto.getNome()))
+                    .findAny()
+                    .orElse(null);                
+            }
+        });
+        txNome.setText(feira.getNome());
+        loadList(); 
     }
 
     @FXML
     public void initialize() {   
         clnProjeto.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().getNome()));
+        
     }
 
     public void loadList(){
@@ -72,6 +93,7 @@ public class PerfilFeiraController {
         feira.setDataModificacao();
         feira.setModificador((Professor)masterController.getUsuarioLogado());
         serviceFeira.update(feira);
+        loadList();
     }
 
     @FXML
@@ -80,6 +102,7 @@ public class PerfilFeiraController {
         feira.setDataModificacao();
         feira.setModificador((Professor)masterController.getUsuarioLogado());
         serviceFeira.update(feira);
+        loadList();
     }
 
     @FXML
@@ -93,6 +116,7 @@ public class PerfilFeiraController {
         feira.setDataModificacao();
         feira.setModificador((Professor)masterController.getUsuarioLogado());
         serviceFeira.update(feira);
+        loadList();
     }
 
 }

@@ -22,7 +22,7 @@
             <TableColumn fx:id="clnEstudante" editable="false" minWidth="-1.0" prefWidth="211.0" text="Estudantes" />
          </columns>
       </TableView>
-      <Button layoutX="28.0" layoutY="361.0" mnemonicParsing="false" onAction="#remover" text="Remover Estudante" AnchorPane.leftAnchor="28.0" />
+      <Button layoutX="28.0" layoutY="361.0" mnemonicParsing="false" onAction="#remover" text="Remover Professor" AnchorPane.leftAnchor="28.0" />
       <TableView fx:id="tblProfessores" layoutX="240.0" layoutY="135.0" prefHeight="195.0" prefWidth="205.0">
          <columns>
             <TableColumn fx:id="clnProfessores" editable="false" minWidth="-1.0" prefWidth="203.0" text="Professores" />
